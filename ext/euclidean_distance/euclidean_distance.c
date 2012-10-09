@@ -3,16 +3,15 @@
 #include "../19_fix/19_fix.c"
 
 /*
-
-def euclidean_distance(other)
-  sum = 0.0
-  self.each_index do |i|
-    sum += (self[i] - other[i])**2
-  end
-  Math.sqrt(sum)
-end
-
+** def euclidean_distance(other)
+**   sum = 0.0
+**   self.each_index do |i|
+**     sum += (self[i] - other[i])**2
+**   end
+**   Math.sqrt(sum)
+** end
 */
+
 static VALUE rb_euclidean_distance(VALUE self, VALUE other_array) {
   double value = 0.0;
 
@@ -33,6 +32,6 @@ static VALUE rb_euclidean_distance(VALUE self, VALUE other_array) {
 }
 
 void Init_euclidean_distance() {
-  VALUE distance_measures = rb_define_module("DistanceMeasures");
-  rb_define_method(distance_measures, "euclidean_distance", rb_euclidean_distance, 1);
+  VALUE measurable = rb_define_module("Measurable");
+  rb_define_method(measurable, "euclidean_distance", rb_euclidean_distance, 1);
 }

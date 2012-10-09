@@ -1,4 +1,4 @@
-module DistanceMeasures
+module Measurable
   def cosine_similarity(other)
     dot_product = self.dot_product(other)
     normalization = self.euclidean_normalize * other.euclidean_normalize

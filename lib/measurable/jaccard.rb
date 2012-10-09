@@ -1,5 +1,5 @@
 # http://en.wikipedia.org/wiki/Jaccard_coefficient
-module DistanceMeasures
+module Measurable
   
   def jaccard_distance(other)
     1 - self.jaccard_index(other)

@@ -2,26 +2,24 @@
 #include <math.h>
 #include "../19_fix/19_fix.c"
 
-// Prototypes
+/* Prototypes */
 long c_array_size(VALUE array);
-// END
 
 /*
-
-def dot_product(other)
-  sum = 0.0
-  self.each_with_index do |n, index|
-    sum += n * other[index]
-  end
-
-  sum
-end
-
+** def dot_product(other)
+**   sum = 0.0
+**   self.each_with_index do |n, index|
+**     sum += n * other[index]
+**   end
+** 
+**   sum
+** end
 */
+
 static VALUE rb_dot_product(VALUE self, VALUE other_array) {
   double sum = 0;
 
-  //TODO: check they're the same size
+  /* TODO check they're the same size. */
   long array_size = c_array_size(self);
   int index;
 
@@ -38,12 +36,11 @@ static VALUE rb_dot_product(VALUE self, VALUE other_array) {
 }
 
 /*
-
-def sum_of_squares
-  inject(0) {|sum, n| sum + n ** 2}
-end
-
+** def sum_of_squares
+**   inject(0) {|sum, n| sum + n ** 2}
+** end
 */
+	
 static VALUE rb_sum_of_squares(VALUE self) {
   double sum = 0;
   long array_size = c_array_size(self);
@@ -61,17 +58,16 @@ static VALUE rb_sum_of_squares(VALUE self) {
 }
 
 /*
-
-def euclidean_normalize
-  sum = 0.0
-  self.each do |n|
-    sum += n ** 2
-  end
-
-  Math.sqrt(sum)
-end
-
+** def euclidean_normalize
+**   sum = 0.0
+**   self.each do |n|
+**     sum += n ** 2
+**   end
+** 
+**   Math.sqrt(sum)
+** end
 */
+
 static VALUE rb_euclidean_normalize(VALUE self) {
   double sum = 0;
   long array_size = c_array_size(self);
@@ -89,21 +85,20 @@ static VALUE rb_euclidean_normalize(VALUE self) {
 }
 
 /*
-
-def binary_union_with(other)
-  unions = []
-  self.each_with_index do |n, index|
-    if n == 1 || other[index] == 1
-      unions << 1
-    else
-      unions << 0
-    end
-  end
-
-  unions
-end
-
+** def binary_union_with(other)
+**   unions = []
+**   self.each_with_index do |n, index|
+**     if n == 1 || other[index] == 1
+**       unions << 1
+**     else
+**       unions << 0
+**     end
+**   end
+** 
+**   unions
+** end
 */
+
 static VALUE rb_binary_union_with(VALUE self, VALUE other_array) {
   //TODO: check arrays are same size
   long array_size = c_array_size(self);
@@ -125,23 +120,22 @@ static VALUE rb_binary_union_with(VALUE self, VALUE other_array) {
 }
 
 /*
-
-def binary_intersection_with(other)
-  intersects = []
-  self.each_with_index do |n, index|
-    if n == 1 && other[index] == 1
-      intersects << 1
-    else
-      intersects << 0
-    end
-  end
-
-  intersects
-end
-
+** def binary_intersection_with(other)
+**   intersects = []
+**   self.each_with_index do |n, index|
+**     if n == 1 && other[index] == 1
+**       intersects << 1
+**     else
+**       intersects << 0
+**     end
+**   end
+** 
+**   intersects
+** end
 */
+
 static VALUE rb_binary_intersection_with(VALUE self, VALUE other_array) {
-  //TODO: check arrays are same size
+  /* TODO check arrays are same size */
   long array_size = c_array_size(self);
   int index;
   VALUE results = rb_ary_new();
@@ -160,16 +154,16 @@ static VALUE rb_binary_intersection_with(VALUE self, VALUE other_array) {
   return results;
 }
 
-// return the size of a Ruby array - 1
+/* return the size of a Ruby array - 1 */
 long c_array_size(VALUE array) {
   return (RARRAY_LEN(array) - 1);
 }
 
 void Init_core() {
-  VALUE distance_measures = rb_define_module("DistanceMeasures");
-  rb_define_method(distance_measures, "dot_product", rb_dot_product, 1);
-  rb_define_method(distance_measures, "sum_of_squares", rb_sum_of_squares, 0);
-  rb_define_method(distance_measures, "euclidean_normalize", rb_euclidean_normalize, 0);
-  rb_define_method(distance_measures, "binary_union_with", rb_binary_union_with, 1);
-  rb_define_method(distance_measures, "binary_intersection_with", rb_binary_intersection_with, 1);
+  VALUE measurable = rb_define_module("Measurable");
+  rb_define_method(measurable, "dot_product", rb_dot_product, 1);
+  rb_define_method(measurable, "sum_of_squares", rb_sum_of_squares, 0);
+  rb_define_method(measurable, "euclidean_normalize", rb_euclidean_normalize, 0);
+  rb_define_method(measurable, "binary_union_with", rb_binary_union_with, 1);
+  rb_define_method(measurable, "binary_intersection_with", rb_binary_intersection_with, 1);
 }

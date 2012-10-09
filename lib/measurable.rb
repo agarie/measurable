@@ -1,14 +1,14 @@
 $:.unshift(File.dirname(__FILE__) + '/../lib')
 
-require 'distance_measures/cosine_similarity'
-require 'distance_measures/euclidean_distance'
-require 'distance_measures/tanimoto_coefficient'
-require 'distance_measures/core'
-require 'distance_measures/jaccard'
-require 'distance_measures/haversine'
+require 'measurable/cosine_similarity'
+require 'measurable/euclidean_distance'
+require 'measurable/tanimoto_coefficient'
+require 'measurable/core'
+require 'measurable/jaccard'
+require 'measurable/haversine'
 
 class Array
-  include DistanceMeasures
+  include Measurable
 
   # http://en.wikipedia.org/wiki/Intersection_(set_theory)
   def intersection_with(other)

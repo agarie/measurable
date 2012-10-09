@@ -1,6 +1,10 @@
 require File.expand_path(File.dirname(__FILE__) + '/spec_helper')
 
-describe "DistanceMeasures" do
+describe Measurable do
+
+  let(:array) { [5, 5] }
+  let(:array_2) { [7, 3, 2, 4, 1] }
+  let(:array_3) { [4, 1, 9, 7, 5] }
 
   describe "Euclidean Distance" do
     it "should return 0.0" do
@@ -99,19 +103,4 @@ describe "DistanceMeasures" do
       [10].euclidean_normalize.should == 10
     end
   end
-
-  private
-
-  def array
-    [5, 5]
-  end
-
-  def array_2
-    [7, 3, 2, 4, 1]
-  end
-
-  def array_3
-    [4,1,9,7,5]
-  end
-
 end

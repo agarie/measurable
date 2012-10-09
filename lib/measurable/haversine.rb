@@ -9,7 +9,7 @@
 # This formula can compute accurate distances between two points given latitude and longitude, even for 
 # short distances.
 
-module DistanceMeasures
+module Measurable
 
   # PI = 3.1415926535
   RAD_PER_DEG = 0.017453293  #  PI/180
