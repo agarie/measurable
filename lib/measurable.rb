@@ -1,11 +1,13 @@
-$:.unshift(File.dirname(__FILE__) + '/../lib')
+$:.unshift(File.dirname(__FILE__) + "/../lib")
 
-require 'measurable/cosine_similarity'
-require 'measurable/euclidean_distance'
-require 'measurable/tanimoto_coefficient'
-require 'measurable/core'
-require 'measurable/jaccard'
-require 'measurable/haversine'
+require "measurable/version.rb"
+
+require "measurable/cosine_similarity"
+require "measurable/tanimoto_coefficient"
+require "measurable/jaccard"
+require "measurable/haversine"
+
+require "measurable.so"
 
 class Array
   include Measurable
@@ -22,8 +24,8 @@ class Array
 
   private
 
-  # Checks if we're dealing with NaN's and will return 0.0 unless
-  # handle NaN's is set to false
+  # Checks if we"re dealing with NaN"s and will return 0.0 unless
+  # handle NaN"s is set to false
   def handle_nan(result)
     result.nan? ? 0.0 : result
   end

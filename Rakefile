@@ -1,28 +1,20 @@
 require 'rake'
-require 'spec/rake/spectask'
+require "rake/extensiontask"
 
-Spec::Rake::SpecTask.new(:spec) do |spec|
-  spec.libs << 'lib' << 'spec'
-  spec.spec_files = FileList['spec/**/*_spec.rb']
+# Setup the necessary gems, specified in the gemspec.
+require 'bundler'
+begin
+  Bundler.setup(:default, :development)
+rescue Bundler::BundlerError => e
+  $stderr.puts e.message
+  $stderr.puts "Run `bundle install` to install missing gems"
+  exit e.status_code
 end
 
-Spec::Rake::SpecTask.new(:rcov) do |spec|
-  spec.libs << 'lib' << 'spec'
-  spec.pattern = 'spec/**/*_spec.rb'
-  spec.rcov = true
+# Compile task.
+Rake::ExtensionTask.new do |ext|
+    ext.name = 'measurable'          
+    ext.ext_dir = 'ext/measurable' 
+    ext.lib_dir = 'lib/'
+    ext.source_pattern = "**/*.{c, cpp, h}" 
 end
-
-task :spec => :check_dependencies
-task :default => :spec
-
-# Euclidean Distance
-Rake::ExtensionTask.new('euclidean_distance') do |ext|
-  ext.lib_dir = File.join('lib', 'measurables')
-end
-
-# Core
-Rake::ExtensionTask.new('core') do |ext|
-  ext.lib_dir = File.join('lib', 'measurables')
-end
-
-Rake::Task[:spec].prerequisites << :compile
