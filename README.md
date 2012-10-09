@@ -68,6 +68,6 @@ There are also a couple bonus methods:
 
 ## License
 
-Copyright (c) 2012 Carlos Agarie.
+Copyright (c) 2012 Carlos Agarie. See LICENSE for details.
 
-The original `Distance Measure` gem is copyright (c) 2010 reddavis. See LICENSE for details.
+The original `Distance Measure` gem is copyrighted by reddavis 2010.
