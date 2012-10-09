@@ -6,7 +6,7 @@ This is a fork of the gem [Distance Measure](https://github.com/reddavis/Distanc
 
 # Install
 
-I'll update this section when I publish the gem. For now... wait.
+`gem install measurable`
   
 ## How to use
 
