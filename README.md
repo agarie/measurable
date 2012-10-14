@@ -1,10 +1,17 @@
 # Measurable
 
-This (soon to be) gem encompasses various distance measures to be used in different projects. I want to support both the built-in `Array` class and [NMatrix](http://github.com/sciruby/nmatrix)'s `NVector`.
+This gem encompasses various distance measures to be used in different projects. I want to support both the built-in `Array` class and [NMatrix](http://github.com/sciruby/nmatrix)'s `NVector`.
 
 This is a fork of the gem [Distance Measure](https://github.com/reddavis/Distance-Measures), which has a similar objective, but isn't actively maintained and doesn't support NMatrix. Thank you, [reddavis](https://github.com/reddavis). :)
 
-# Install
+# TO DO
+
+- Chebyshev: http://en.wikipedia.org/wiki/Chebyshev_distance
+	d(p,q) = max|pi - qi|, para algum i
+- Lyapunov-norm: http://en.wikipedia.org/wiki/Lp_space#The_p-norm_in_finite_dimensions
+	dp(x) = (x1^p + ... + xn^p) ^ (1/p)
+
+## Install
 
 `gem install measurable`
   

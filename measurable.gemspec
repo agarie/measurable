@@ -4,7 +4,7 @@ $:.unshift lib unless $:.include?(lib)
 require 'measurable/version'
 
 Gem::Specification.new do |gem|
-  gem.name = "measurables"  
+  gem.name = "measurable"  
   gem.version = Measurable::VERSION
   gem.date = Date.today.to_s
   gem.summary = %Q{A Ruby module with a lot of distance measures for your projects.}

@@ -11,13 +11,13 @@
 #endif
 
 /*
-** def euclidean_distance(other)
-**   sum = 0.0
-**   self.each_index do |i|
-**     sum += (self[i] - other[i])**2
-**   end
-**   Math.sqrt(sum)
-** end
+ * def euclidean_distance(other)
+ *   sum = 0.0
+ *   self.each_index do |i|
+ *     sum += (self[i] - other[i])**2
+ *   end
+ *   Math.sqrt(sum)
+ * end
 */
 
 static VALUE rb_euclidean(VALUE self, VALUE other_array) {
@@ -43,14 +43,14 @@ static VALUE rb_euclidean(VALUE self, VALUE other_array) {
 long c_array_size(VALUE array);
 
 /*
-** def dot_product(other)
-**   sum = 0.0
-**   self.each_with_index do |n, index|
-**     sum += n * other[index]
-**   end
-** 
-**   sum
-** end
+ * def dot_product(other)
+ *   sum = 0.0
+ *   self.each_with_index do |n, index|
+ *     sum += n * other[index]
+ *   end
+ * 
+ *   sum
+ * end
 */
 
 static VALUE rb_dot_product(VALUE self, VALUE other_array) {
@@ -73,9 +73,9 @@ static VALUE rb_dot_product(VALUE self, VALUE other_array) {
 }
 
 /*
-** def sum_of_squares
-**   inject(0) {|sum, n| sum + n ** 2}
-** end
+ * def sum_of_squares
+ *   inject(0) {|sum, n| sum + n ** 2}
+ * end
 */
 	
 static VALUE rb_sum_of_squares(VALUE self) {
@@ -95,14 +95,14 @@ static VALUE rb_sum_of_squares(VALUE self) {
 }
 
 /*
-** def euclidean_normalize
-**   sum = 0.0
-**   self.each do |n|
-**     sum += n ** 2
-**   end
-** 
-**   Math.sqrt(sum)
-** end
+ * def euclidean_normalize
+ *   sum = 0.0
+ *   self.each do |n|
+ *     sum += n ** 2
+ *   end
+ * 
+ *   Math.sqrt(sum)
+ * end
 */
 
 static VALUE rb_euclidean_normalize(VALUE self) {
@@ -122,18 +122,18 @@ static VALUE rb_euclidean_normalize(VALUE self) {
 }
 
 /*
-** def binary_union_with(other)
-**   unions = []
-**   self.each_with_index do |n, index|
-**     if n == 1 || other[index] == 1
-**       unions << 1
-**     else
-**       unions << 0
-**     end
-**   end
-** 
-**   unions
-** end
+ * def binary_union_with(other)
+ *   unions = []
+ *   self.each_with_index do |n, index|
+ *     if n == 1 || other[index] == 1
+ *       unions << 1
+ *     else
+ *       unions << 0
+ *     end
+ *   end
+ * 
+ *   unions
+ * end
 */
 
 static VALUE rb_binary_union_with(VALUE self, VALUE other_array) {
@@ -157,18 +157,18 @@ static VALUE rb_binary_union_with(VALUE self, VALUE other_array) {
 }
 
 /*
-** def binary_intersection_with(other)
-**   intersects = []
-**   self.each_with_index do |n, index|
-**     if n == 1 && other[index] == 1
-**       intersects << 1
-**     else
-**       intersects << 0
-**     end
-**   end
-** 
-**   intersects
-** end
+ * def binary_intersection_with(other)
+ *   intersects = []
+ *   self.each_with_index do |n, index|
+ *     if n == 1 && other[index] == 1
+ *       intersects << 1
+ *     else
+ *       intersects << 0
+ *     end
+ *   end
+ * 
+ *   intersects
+ * end
 */
 
 static VALUE rb_binary_intersection_with(VALUE self, VALUE other_array) {
