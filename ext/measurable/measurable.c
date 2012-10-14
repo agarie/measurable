@@ -23,7 +23,7 @@
 static VALUE rb_euclidean(VALUE self, VALUE other_array) {
   double value = 0.0;
 
-  /* TODO: check they're the same size. */
+  /* TODO check they're the same size. */
   long vector_length = (RARRAY_LEN(self) - 1);
   int index;
 
@@ -41,85 +41,6 @@ static VALUE rb_euclidean(VALUE self, VALUE other_array) {
 
 /* Prototypes */
 long c_array_size(VALUE array);
-
-/*
- * def dot_product(other)
- *   sum = 0.0
- *   self.each_with_index do |n, index|
- *     sum += n * other[index]
- *   end
- * 
- *   sum
- * end
-*/
-
-static VALUE rb_dot_product(VALUE self, VALUE other_array) {
-  double sum = 0;
-
-  /* TODO check they're the same size. */
-  long array_size = c_array_size(self);
-  int index;
-
-  for(index = 0; index <= array_size; index++) {
-    double x, y;
-
-    x = NUM2DBL(RARRAY_PTR(self)[index]);
-    y = NUM2DBL(RARRAY_PTR(other_array)[index]);
-
-    sum += x * y;
-  }
-
-  return rb_float_new(sum);
-}
-
-/*
- * def sum_of_squares
- *   inject(0) {|sum, n| sum + n ** 2}
- * end
-*/
-	
-static VALUE rb_sum_of_squares(VALUE self) {
-  double sum = 0;
-  long array_size = c_array_size(self);
-  int index;
-
-  for(index = 0; index <= array_size; index++) {
-    double x;
-
-    x = NUM2DBL(RARRAY_PTR(self)[index]);
-
-    sum += pow(x, 2);
-  }
-
-  return rb_float_new(sum);
-}
-
-/*
- * def euclidean_normalize
- *   sum = 0.0
- *   self.each do |n|
- *     sum += n ** 2
- *   end
- * 
- *   Math.sqrt(sum)
- * end
-*/
-
-static VALUE rb_euclidean_normalize(VALUE self) {
-  double sum = 0;
-  long array_size = c_array_size(self);
-  int index;
-
-  for(index = 0; index <= array_size; index++) {
-    double x;
-
-    x = NUM2DBL(RARRAY_PTR(self)[index]);
-
-    sum += pow(x, 2);
-  }
-
-  return rb_float_new(sqrt(sum));
-}
 
 /*
  * def binary_union_with(other)
@@ -201,9 +122,6 @@ Init_measurable()
 {
   VALUE rb_measurable = rb_define_module("Measurable");
 	rb_define_method(rb_measurable, "euclidean", rb_euclidean, 1);
-  rb_define_method(rb_measurable, "dot_product", rb_dot_product, 1);
-  rb_define_method(rb_measurable, "sum_of_squares", rb_sum_of_squares, 0);
-  rb_define_method(rb_measurable, "euclidean_normalize", rb_euclidean_normalize, 0);
   rb_define_method(rb_measurable, "binary_union_with", rb_binary_union_with, 1);
   rb_define_method(rb_measurable, "binary_intersection_with", rb_binary_intersection_with, 1);
 }
