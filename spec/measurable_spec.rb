@@ -9,11 +9,13 @@ describe Measurable do
   let(:array) { [1, 1, 1] }
 
   describe "Euclidean distance" do
-    it "should handle only two arguments" do
+    it "accepts two arguments" do
       expect { euclidean(:u) }.to raise_error(ArgumentError)
       expect { euclidean(:u, :v) }.to_not raise_error(ArgumentError)
       expect { euclidean(:u, :v, :array) }.to raise_error(ArgumentError)
     end
+    
+    it "accepts one argument and returns the vector's norm"
     
     it "should handle arrays" do
       expect { euclidean(:u, :array) }.to_not raise_error
@@ -23,6 +25,8 @@ describe Measurable do
       expect { euclidean(:u, :v) }.to_not raise_error
       expect { euclidean(:array, :array) }.to_not raise_error
     end
+    
+    it "should be symmetric"
 
     it "should return the correct value" do
       euclidean(:u, :u).should == 0
@@ -34,59 +38,54 @@ describe Measurable do
     end
   end
 
-  describe "Cosine Similarity" do
-    it "should return the correct result"
+  describe "Cosine similarity measure" do
+    it "accepts two arguments"
+    
+    it "accepts one argument and returns the vector's norm"
+    
+    it "should handle arrays"
+    
+    it "should handle NVectors"
 
-    it "should handle NaN's" do
-      [0.0, 0.0].cosine_similarity([0.0, 0.0]).nan?.should be_false
-    end
+    it "should handle NaN's"
+    
+    it "should be symmetric"
+
+    it "should return the correct value"
+
+    it "shouldn't work with vectors of different length"
   end
+  
+  
+  describe "Chebyshev distance" do
+    it "accepts two arguments"
+    
+    it "accepts one argument and returns the vector's norm"
+    
+    it "should handle arrays"
+    
+    it "should handle NVectors"
+    
+    it "should be symmetric"
 
-  describe "Tanimoto Coefficient" do
-    it "should return 1.0"
-
-    it "should handle NaN's" do
-      [0.0, 0.0].tanimoto_coefficient([0.0, 0.0]).nan?.should be_false
-    end
+    it "should return the correct value"
+    
+    it "shouldn't work with vectors of different length"
   end
+  
+  describe "Max-min similarity measure" do
+    it "accepts two arguments"
+    
+    it "accepts one argument and returns the vector's norm"
+    
+    it "should handle arrays"
+    
+    it "should handle NVectors"
+    
+    it "should be symmetric"
 
-  describe "Jaccard" do
-    describe "Jaccard Distance" do
-      it "should return"
-    end
+    it "should return the correct value"
 
-    describe "Jaccard Index" do
-      it "should return"
-    end
-
-    describe "Binary Jaccard Index" do
-      it "should return 1/4" do
-        [1,1,1,1].binary_jaccard_index([0,1,0,0]).should == 1/4.0
-      end
-    end
-  end
-
-  describe "Binary Jaccard Distance" do
-    it "should return 0.75" do
-      [1,1,1,1].binary_jaccard_distance([0,1,0,0]).should == 1 - (1/4.0)
-    end
-  end
-
-  describe "Intersection" do
-    it "should return"
-  end
-
-  describe "Union" do
-    it "should return"
-  end
-
-  describe "Binary Intersection" do
-    it "should return"
-  end
-
-  describe "Binary Union" do
-    it "should return [1,1,1,0]" do
-      [1,1,1,0].binary_union_with([0,0,0,0]).should == [1,1,1,0]
-    end
+    it "shouldn't work with vectors of different length"
   end
 end

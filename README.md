@@ -4,12 +4,11 @@ This gem encompasses various distance measures to be used in different projects.
 
 This is a fork of the gem [Distance Measure](https://github.com/reddavis/Distance-Measures), which has a similar objective, but isn't actively maintained and doesn't support NMatrix. Thank you, [reddavis](https://github.com/reddavis). :)
 
-# TO DO
+# Distance measures that I want to support for the moment
 
-- Chebyshev: http://en.wikipedia.org/wiki/Chebyshev_distance
-	d(p,q) = max|pi - qi|, para algum i
-- Lyapunov-norm: http://en.wikipedia.org/wiki/Lp_space#The_p-norm_in_finite_dimensions
-	dp(x) = (x1^p + ... + xn^p) ^ (1/p)
+- Cosine similarity
+- Chebyshev distance: http://en.wikipedia.org/wiki/Chebyshev_distance
+- Max-min similarity measure (from the paper "K-Means clustering using max-min distance measure")
 
 ## Install
 
@@ -34,44 +33,6 @@ Measurable::euclidean(w, w) # => 0.00000
 ```
 
 Maybe add some support for some of NMatrix's dtypes, like `:float32`, `:float64`, `:complex64`, `:complex128`, etc.
-
-## How to use, the old way:
-
-  a = [1,1]
-  b = [2,2]
-  
-  a.euclidean_distance(b)
-  
-  a.cosine_similarity(b)
-  
-  a.jaccard_index(b)
-  
-  a.jaccard_distance(b)
-  
-  a.binary_jaccard_index(b)
-  
-  a.binary_jaccard_distance(b)
-  
-  a.tanimoto_coefficient(b)
-  
-  a.haversine_distance(b)
-  
-This may or may not be the complete list, best thing is to check the source code.
-  
-There are also a couple bonus methods:
-
-  a.dot_product(b)
-  
-  a.sum_of_squares
-  
-  a.intersection_with(b)
-  
-  a.union_with(b)
-  
-  # When your dealing with 1's and 0's
-  a.binary_intersection_with(b)
-  
-  a.binary_union_with(b)
 
 ## License
 
