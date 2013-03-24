@@ -12,16 +12,6 @@ module Measurable
   # PI = 3.1415926535
   RAD_PER_DEG = 0.017453293  #  PI/180
 
-  # http://en.wikipedia.org/wiki/Intersection_(set_theory)
-  def intersection(u, v)
-    (u & v)
-  end
-
-  # http://en.wikipedia.org/wiki/Union_(set_theory)
-  def union(u, v)
-    (u + v).uniq
-  end
-
   def binary_union(u, v)
     unions = []
     u.each_with_index do |n, index|

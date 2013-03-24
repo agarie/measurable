@@ -6,10 +6,10 @@ module Measurable
   end
   
   def jaccard_index(u, v)
-    union = (u + v).uniq.size.to_f
-    i = intersection(u, v).size.to_f
+    union = (u | v).size.to_f
+    intersection = (u & v).size.to_f
         
-    i / union
+    intersection / union
   end
   
   def binary_jaccard(u, v)
@@ -17,9 +17,9 @@ module Measurable
   end
   
   def binary_jaccard_index(u, v)
-    i = binary_intersection(u, v).delete_if {|x| x == 0}.size.to_f
+    intersection = binary_intersection(u, v).delete_if {|x| x == 0}.size.to_f
     union = binary_union(u, v).delete_if {|x| x == 0}.size.to_f
     
-    i / union
+    intersection / union
   end
 end
