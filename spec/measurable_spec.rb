@@ -4,6 +4,14 @@ describe Measurable do
   let(:v) { [1, 4, 16] }
   let(:w) { [4, 5, 6] }
 
+  describe "Binary union" do
+    
+  end
+
+  describe "Binary intersection" do
+    
+  end
+
   describe "Euclidean distance" do
     it "accepts two arguments" do
       expect { Measurable::euclidean(:u) }.to raise_error(ArgumentError)
@@ -25,11 +33,7 @@ describe Measurable do
     end
   end
 
-  describe "Binary union" do
-
-  describe "Binary intersection" do
-
-  describe "Cosine similarity measure" do
+  describe "Cosine distance" do
     it "accepts two arguments"
     
     it "accepts one argument and returns the vector's norm"
@@ -55,7 +59,55 @@ describe Measurable do
     it "shouldn't work with vectors of different length"
   end
   
-  describe "Max-min similarity measure" do
+  describe "Tanimoto distance" do
+    it "accepts two arguments"
+    
+    it "accepts one argument and returns the vector's norm"
+        
+    it "should be symmetric"
+
+    it "should return the correct value"
+    
+    it "shouldn't work with vectors of different length"    
+  end
+
+  describe "Haversine distance" do
+    it "accepts two arguments"
+    
+    it "accepts one argument and returns the vector's norm"
+        
+    it "should be symmetric"
+
+    it "should return the correct value"
+    
+    it "shouldn't work with vectors of different length"
+  end
+  
+  describe "Jaccard distance" do
+    it "accepts two arguments"
+    
+    it "accepts one argument and returns the vector's norm"
+        
+    it "should be symmetric"
+
+    it "should return the correct value"
+    
+    it "shouldn't work with vectors of different length"
+  end
+  
+  describe "Binary Jaccard distance" do
+    it "accepts two arguments"
+    
+    it "accepts one argument and returns the vector's norm"
+        
+    it "should be symmetric"
+
+    it "should return the correct value"
+    
+    it "shouldn't work with vectors of different length"
+  end
+  
+  describe "Max-min distance" do
     it "accepts two arguments"
     
     it "accepts one argument and returns the vector's norm"
