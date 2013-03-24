@@ -1,9 +1,9 @@
 require 'measurable/version.rb'
 
 # Distance measures.
-reqiore 'measurable/euclidean'
+require 'measurable/euclidean'
 require 'measurable/cosine'
-require 'measurable/tanimoto_coefficient'
+require 'measurable/tanimoto'
 require 'measurable/jaccard'
 require 'measurable/haversine'
 require 'measurable/maxmin'
