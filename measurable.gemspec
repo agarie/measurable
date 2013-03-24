@@ -1,6 +1,7 @@
 $:.unshift File.expand_path('../lib/', __FILE__)
 
 require 'measurable/version'
+require 'date'
 
 Gem::Specification.new do |gem|
   gem.name = "measurable"  
