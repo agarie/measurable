@@ -14,9 +14,9 @@ describe Measurable do
 
   describe "Euclidean distance" do
     it "accepts two arguments" do
-      expect { Measurable::euclidean(:u) }.to raise_error(ArgumentError)
-      expect { Measurable::euclidean(:u, :v) }.to_not raise_error(ArgumentError)
-      expect { Measurable::euclidean(:u, :v, :w) }.to raise_error(ArgumentError)
+      expect { Measurable.euclidean(:u) }.to raise_error(ArgumentError)
+      expect { Measurable.euclidean(:u, :v) }.to_not raise_error(ArgumentError)
+      expect { Measurable.euclidean(:u, :v, :w) }.to raise_error(ArgumentError)
     end
     
     it "accepts one argument and returns the vector's norm"
@@ -29,7 +29,7 @@ describe Measurable do
     end
     
     it "shouldn't work with vectors of different length" do
-      expect { Measurable::euclidean(:u, [2, 2, 2, 2]) }.to raise_error(DiffLengthError)
+      expect { Measurable::euclidean(:u, [2, 2, 2, 2]) }.to raise_error
     end
   end
 
