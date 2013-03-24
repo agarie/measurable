@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    measurables (0.0.1)
+    measurable (0.0.2)
 
 GEM
   remote: http://rubygems.org/
@@ -24,7 +24,7 @@ PLATFORMS
 
 DEPENDENCIES
   bundler
-  measurables!
+  measurable!
   rake (~> 0.9)
   rake-compiler (~> 0.8.1)
   rspec (~> 2.9.0)

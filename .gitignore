@@ -1,3 +1,4 @@
 pkg
 tmp/*
 benchmarks/*
+lib/*.bundle

@@ -1,28 +1,51 @@
-$:.unshift(File.dirname(__FILE__) + "/../lib")
+require 'measurable/version.rb'
 
-require "measurable/version.rb"
+# Distance measures.
+reqiore 'measurable/euclidean'
+require 'measurable/cosine'
+require 'measurable/tanimoto_coefficient'
+require 'measurable/jaccard'
+require 'measurable/haversine'
 
-require "measurable/cosine_similarity"
-require "measurable/tanimoto_coefficient"
-require "measurable/jaccard"
-require "measurable/haversine"
-
-require "measurable.so"
-
-class Array
-  include Measurable
+module Measurable
+  # PI = 3.1415926535
+  RAD_PER_DEG = 0.017453293  #  PI/180
 
   # http://en.wikipedia.org/wiki/Intersection_(set_theory)
-  def intersection_with(other)
-    (self & other)
+  def intersection(u, v)
+    (u & v)
   end
 
   # http://en.wikipedia.org/wiki/Union_(set_theory)
-  def union_with(other)
-    (self + other).uniq
+  def union(u, v)
+    (u + v).uniq
   end
 
-  private
+  def binary_union(u, v)
+    unions = []
+    u.each_with_index do |n, index|
+      if n == 1 || v[index] == 1
+        unions << 1
+      else
+        unions << 0
+      end
+    end
+
+    unions
+  end
+
+  def binary_intersection(u, v)
+    intersects = []
+    u.each_with_index do |n, index|
+      if n == 1 && v[index] == 1
+        intersects << 1
+      else
+        intersects << 0
+      end
+    end
+
+    intersects
+  end
 
   # Checks if we"re dealing with NaN"s and will return 0.0 unless
   # handle NaN"s is set to false

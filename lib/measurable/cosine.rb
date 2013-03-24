@@ -1,6 +1,6 @@
 module Measurable
-  def self.cosine_similarity(other)
-    dot_product = self.dot_product(other)
+  def cosine(u, v)
+    dot_product = dot(u, v)
     normalization = self.euclidean_normalize * other.euclidean_normalize
 
     handle_nan(dot_product / normalization)

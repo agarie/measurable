@@ -1,26 +1,26 @@
 # http://en.wikipedia.org/wiki/Jaccard_coefficient
 module Measurable
   
-  def jaccard_distance(other)
-    1 - self.jaccard_index(other)
+  def jaccard(u, v)
+    1 - jaccard_index(u, v)
   end
   
-  def jaccard_index(other)
-    union = (self + other).uniq.size.to_f
-    intersection = self.intersection_with(other).size.to_f
+  def jaccard_index(u, v)
+    union = (u + v).uniq.size.to_f
+    i = intersection(u, v).size.to_f
         
-    intersection / union
+    i / union
   end
   
-  def binary_jaccard_distance(other)
-    1 - self.binary_jaccard_index(other)
+  def binary_jaccard(u, v)
+    1 - binary_jaccard_index(u, v)
   end
   
-  def binary_jaccard_index(other)
-    intersection = self.binary_intersection_with(other).delete_if {|x| x == 0}.size.to_f
-    union = self.binary_union_with(other).delete_if {|x| x == 0}.size.to_f
+  def binary_jaccard_index(u, v)
+    i = binary_intersection(u, v).delete_if {|x| x == 0}.size.to_f
+    union = binary_union(u, v).delete_if {|x| x == 0}.size.to_f
     
-    intersection / union
+    i / union
   end
   
 end
