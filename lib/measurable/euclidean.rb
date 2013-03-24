@@ -3,7 +3,7 @@ module Measurable
     sum = 0.0
     
     u.zip(v).each do |ary|
-      sum += (ary.first - ary.last)**2
+      sum += (ary[0] - ary[-1])**2
     end
     
     Math.sqrt(sum)
@@ -11,7 +11,7 @@ module Measurable
   
   def euclidean_squared(u, v)
     u.zip(v).reduce(0.0) do |acc, ary|
-      acc += (ary.first - ary.last)**2
+      acc += (ary[0] - ary[-1])**2
     end
   end
 end

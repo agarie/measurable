@@ -6,6 +6,7 @@ require 'measurable/cosine'
 require 'measurable/tanimoto_coefficient'
 require 'measurable/jaccard'
 require 'measurable/haversine'
+require 'measurable/maxmin'
 
 module Measurable
   # PI = 3.1415926535

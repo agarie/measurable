@@ -22,5 +22,4 @@ module Measurable
     
     i / union
   end
-  
 end
