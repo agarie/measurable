@@ -1,4 +1,4 @@
-require 'measurable/version.rb'
+require 'measurable/version'
 
 # Distance measures.
 require 'measurable/euclidean'
