@@ -72,17 +72,22 @@ describe Measurable do
   end
 
   describe "Cosine distance" do
-    it "accepts two arguments"
-    
-    it "accepts one argument and returns the vector's norm"
-    
+    it "accepts two arguments" do
+      expect { Measurable.cosine(@u, @v) }.to_not raise_error
+      expect { Measurable.cosine(@u, @v, @w) }.to raise_error(ArgumentError)
+    end
+        
     it "should handle NaN's"
     
-    it "should be symmetric"
+    it "should be symmetric" do
+      Measurable.cosine(@u, @v).should == Measurable.cosine(@v, @u)
+    end
 
     it "should return the correct value"
 
-    it "shouldn't work with vectors of different length"
+    it "shouldn't work with vectors of different length" do
+      expect { Measurable.cosine(@u, [1, 3, 5, 7]) }.to raise_error
+    end
   end
     
   describe "Chebyshev distance" do
@@ -98,7 +103,10 @@ describe Measurable do
   end
   
   describe "Tanimoto distance" do
-    it "accepts two arguments"
+    it "accepts two arguments" do
+      expect { Measurable.tanimoto(@u, @v) }.to_not raise_error
+      expect { Measurable.tanimoto(@u, @v, @w) }.to raise_error(ArgumentError)
+    end
     
     it "accepts one argument and returns the vector's norm"
         
@@ -146,7 +154,10 @@ describe Measurable do
   end
   
   describe "Max-min distance" do
-    it "accepts two arguments"
+    it "accepts two arguments" do
+      expect { Measurable.maxmin(@u, @v) }.to_not raise_error
+      expect { Measurable.maxmin(@u, @v, @w) }.to raise_error(ArgumentError)
+    end
     
     it "accepts one argument and returns the vector's norm"
     
