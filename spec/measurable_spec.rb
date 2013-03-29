@@ -114,23 +114,31 @@ describe Measurable do
 
     it "should return the correct value"
     
-    it "shouldn't work with vectors of different length"    
+    it "shouldn't work with vectors of different length" do
+      expect { Measurable.tanimoto(@u, [1, 3, 5, 7]) }.to raise_error
+    end
   end
 
   describe "Haversine distance" do
-    it "accepts two arguments"
+    it "accepts two arguments" do
+      expect { Measurable.haversine([1, 2], [4, 5]) }.to_not raise_error
+      expect { Measurable.haversine([1, 12], [4, 9], [2, 3]) }.to raise_error(ArgumentError)
+    end
     
-    it "accepts one argument and returns the vector's norm"
-        
     it "should be symmetric"
 
     it "should return the correct value"
     
-    it "shouldn't work with vectors of different length"
+    it "should only work with [lat, long] vectors" do
+      expect { Measurable.haversine([2, 4], [1, 3, 5, 7]) }.to raise_error
+    end
   end
   
   describe "Jaccard distance" do
-    it "accepts two arguments"
+    it "accepts two arguments" do
+      expect { Measurable.jaccard(@u, @v) }.to_not raise_error
+      expect { Measurable.jaccard(@u, @v, @w) }.to raise_error(ArgumentError)
+    end
     
     it "accepts one argument and returns the vector's norm"
         
@@ -161,10 +169,14 @@ describe Measurable do
     
     it "accepts one argument and returns the vector's norm"
     
-    it "should be symmetric"
+    it "should be symmetric" do
+      Measurable.maxmin(@u, @v).should == Measurable.maxmin(@v, @u)
+    end
 
     it "should return the correct value"
 
-    it "shouldn't work with vectors of different length"
+    it "shouldn't work with vectors of different length" do
+      expect { Measurable.maxmin(@u, [1, 3, 5, 7]) }.to raise_error      
+    end
   end
 end
