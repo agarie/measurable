@@ -72,6 +72,13 @@ describe Measurable do
   end
 
   describe "Cosine distance" do
+    
+    before :all do
+      @u = [1, 3, 16]
+      @v = [1, 4, 16]
+      @w = [4, 5, 6]
+    end
+    
     it "accepts two arguments" do
       expect { Measurable.cosine(@u, @v) }.to_not raise_error
       expect { Measurable.cosine(@u, @v, @w) }.to raise_error(ArgumentError)
@@ -103,6 +110,13 @@ describe Measurable do
   end
   
   describe "Tanimoto distance" do
+    
+    before :all do
+      @u = [1, 3, 16]
+      @v = [1, 4, 16]
+      @w = [4, 5, 6]
+    end
+    
     it "accepts two arguments" do
       expect { Measurable.tanimoto(@u, @v) }.to_not raise_error
       expect { Measurable.tanimoto(@u, @v, @w) }.to raise_error(ArgumentError)
@@ -120,6 +134,13 @@ describe Measurable do
   end
 
   describe "Haversine distance" do
+    
+    before :all do
+      @u = [1, 3, 16]
+      @v = [1, 4, 16]
+      @w = [4, 5, 6]
+    end
+    
     it "accepts two arguments" do
       expect { Measurable.haversine([1, 2], [4, 5]) }.to_not raise_error
       expect { Measurable.haversine([1, 12], [4, 9], [2, 3]) }.to raise_error(ArgumentError)
@@ -135,6 +156,13 @@ describe Measurable do
   end
   
   describe "Jaccard distance" do
+    
+    before :all do
+      @u = [1, 3, 16]
+      @v = [1, 4, 16]
+      @w = [4, 5, 6]
+    end
+    
     it "accepts two arguments" do
       expect { Measurable.jaccard(@u, @v) }.to_not raise_error
       expect { Measurable.jaccard(@u, @v, @w) }.to raise_error(ArgumentError)
@@ -162,19 +190,31 @@ describe Measurable do
   end
   
   describe "Max-min distance" do
+    
+    before :all do
+      @u = [1, 3, 16]
+      @v = [1, 4, 16]
+      @w = [4, 5, 6]
+    end
+    
     it "accepts two arguments" do
       expect { Measurable.maxmin(@u, @v) }.to_not raise_error
       expect { Measurable.maxmin(@u, @v, @w) }.to raise_error(ArgumentError)
     end
-    
-    it "accepts one argument and returns the vector's norm"
-    
+        
     it "should be symmetric" do
-      Measurable.maxmin(@u, @v).should == Measurable.maxmin(@v, @u)
+      x = Measurable.maxmin(@u, @v)
+      y = Measurable.maxmin(@v, @u)
+      
+      x.should be_within(TOLERANCE).of(y)
     end
 
-    it "should return the correct value"
-
+    it "should return the correct value" do
+      x = Measurable.maxmin(@u, @v)
+      
+      x.should be_within(TOLERANCE).of(0.9523809523)
+    end
+    
     it "shouldn't work with vectors of different length" do
       expect { Measurable.maxmin(@u, [1, 3, 5, 7]) }.to raise_error      
     end
