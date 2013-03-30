@@ -23,24 +23,22 @@ module Measurable
     :meters => R_KM * 1000
   }
 
-  class << self
-    def haversine(u, v, um = :meters)
-      dlon = u[1] - v[1]
-      dlat = u[0] - v[0]
+  def haversine(u, v, um = :meters)
+    dlon = u[1] - v[1]
+    dlat = u[0] - v[0]
 
-      dlon_rad = dlon * RAD_PER_DEG 
-      dlat_rad = dlat * RAD_PER_DEG
+    dlon_rad = dlon * RAD_PER_DEG 
+    dlat_rad = dlat * RAD_PER_DEG
 
-      lat1_rad = v[0] * RAD_PER_DEG
-      lon1_rad = v[1] * RAD_PER_DEG
+    lat1_rad = v[0] * RAD_PER_DEG
+    lon1_rad = v[1] * RAD_PER_DEG
 
-      lat2_rad = u[0] * RAD_PER_DEG
-      lon2_rad = u[1] * RAD_PER_DEG
+    lat2_rad = u[0] * RAD_PER_DEG
+    lon2_rad = u[1] * RAD_PER_DEG
 
-      a = (Math.sin(dlat_rad/2))**2 + Math.cos(lat1_rad) * Math.cos(lat2_rad) * (Math.sin(dlon_rad/2))**2
-      c = 2 * Math.atan2( Math.sqrt(a), Math.sqrt(1-a))
+    a = (Math.sin(dlat_rad/2))**2 + Math.cos(lat1_rad) * Math.cos(lat2_rad) * (Math.sin(dlon_rad/2))**2
+    c = 2 * Math.atan2( Math.sqrt(a), Math.sqrt(1-a))
 
-      R[um] * c
-    end
+    R[um] * c
   end
 end
