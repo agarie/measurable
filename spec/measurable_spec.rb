@@ -87,7 +87,10 @@ describe Measurable do
     it "should handle NaN's"
     
     it "should be symmetric" do
-      Measurable.cosine(@u, @v).should == Measurable.cosine(@v, @u)
+      x = Measurable.cosine(@u, @v)
+      y = Measurable.cosine(@v, @u)
+
+      x.should be_within(TOLERANCE).of(y)
     end
 
     it "should return the correct value"
@@ -95,18 +98,6 @@ describe Measurable do
     it "shouldn't work with vectors of different length" do
       expect { Measurable.cosine(@u, [1, 3, 5, 7]) }.to raise_error
     end
-  end
-    
-  describe "Chebyshev distance" do
-    it "accepts two arguments"
-    
-    it "accepts one argument and returns the vector's norm"
-        
-    it "should be symmetric"
-
-    it "should return the correct value"
-    
-    it "shouldn't work with vectors of different length"
   end
   
   describe "Tanimoto distance" do
@@ -154,7 +145,38 @@ describe Measurable do
       expect { Measurable.haversine([2, 4], [1, 3, 5, 7]) }.to raise_error
     end
   end
-  
+    
+  describe "Max-min distance" do
+    
+    before :all do
+      @u = [1, 3, 16]
+      @v = [1, 4, 16]
+      @w = [4, 5, 6]
+    end
+    
+    it "accepts two arguments" do
+      expect { Measurable.maxmin(@u, @v) }.to_not raise_error
+      expect { Measurable.maxmin(@u, @v, @w) }.to raise_error(ArgumentError)
+    end
+        
+    it "should be symmetric" do
+      x = Measurable.maxmin(@u, @v)
+      y = Measurable.maxmin(@v, @u)
+      
+      x.should be_within(TOLERANCE).of(y)
+    end
+
+    it "should return the correct value" do
+      x = Measurable.maxmin(@u, @v)
+      
+      x.should be_within(TOLERANCE).of(0.9523809523)
+    end
+    
+    it "shouldn't work with vectors of different length" do
+      expect { Measurable.maxmin(@u, [1, 3, 5, 7]) }.to raise_error      
+    end
+  end
+    
   describe "Jaccard distance" do
     
     before :all do
@@ -189,34 +211,15 @@ describe Measurable do
     it "shouldn't work with vectors of different length"
   end
   
-  describe "Max-min distance" do
+  describe "Chebyshev distance" do
+    it "accepts two arguments"
     
-    before :all do
-      @u = [1, 3, 16]
-      @v = [1, 4, 16]
-      @w = [4, 5, 6]
-    end
-    
-    it "accepts two arguments" do
-      expect { Measurable.maxmin(@u, @v) }.to_not raise_error
-      expect { Measurable.maxmin(@u, @v, @w) }.to raise_error(ArgumentError)
-    end
+    it "accepts one argument and returns the vector's norm"
         
-    it "should be symmetric" do
-      x = Measurable.maxmin(@u, @v)
-      y = Measurable.maxmin(@v, @u)
-      
-      x.should be_within(TOLERANCE).of(y)
-    end
+    it "should be symmetric"
 
-    it "should return the correct value" do
-      x = Measurable.maxmin(@u, @v)
-      
-      x.should be_within(TOLERANCE).of(0.9523809523)
-    end
+    it "should return the correct value"
     
-    it "shouldn't work with vectors of different length" do
-      expect { Measurable.maxmin(@u, [1, 3, 5, 7]) }.to raise_error      
-    end
+    it "shouldn't work with vectors of different length"
   end
 end
