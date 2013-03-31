@@ -83,8 +83,6 @@ describe Measurable do
       expect { Measurable.cosine(@u, @v) }.to_not raise_error
       expect { Measurable.cosine(@u, @v, @w) }.to raise_error(ArgumentError)
     end
-        
-    it "should handle NaN's"
     
     it "should be symmetric" do
       x = Measurable.cosine(@u, @v)
@@ -115,7 +113,12 @@ describe Measurable do
     
     it "accepts one argument and returns the vector's norm"
         
-    it "should be symmetric"
+    it "should be symmetric" do
+      x = Measurable.tanimoto(@u, @v)
+      y = Measurable.tanimoto(@v, @u)
+      
+      x.should be_within(TOLERANCE).of(y)
+    end
 
     it "should return the correct value"
     

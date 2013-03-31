@@ -24,6 +24,9 @@ module Measurable
   }
 
   def haversine(u, v, um = :meters)
+    raise ArgumentError if u.size != 2 || v.size != 2
+    raise ArgumentError if um.class != Symbol
+    
     dlon = u[1] - v[1]
     dlat = u[0] - v[0]
 
