@@ -39,10 +39,4 @@ module Measurable
 
     intersects
   end
-
-  # Checks if we"re dealing with NaN"s and will return 0.0 unless
-  # handle NaN"s is set to false
-  def handle_nan(result)
-    result.nan? ? 0.0 : result
-  end
 end

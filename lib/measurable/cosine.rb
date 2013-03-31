@@ -7,6 +7,6 @@ module Measurable
     
     dot_product = u.zip(v).reduce(0.0) { |acc, ary| acc += ary[0] * ary[1] }
 
-    handle_nan(dot_product / (euclidean(u) * euclidean(v)))
+    dot_product / (euclidean(u) * euclidean(v))
   end
 end
