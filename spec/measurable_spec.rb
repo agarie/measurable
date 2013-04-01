@@ -110,9 +110,7 @@ describe Measurable do
       expect { Measurable.tanimoto(@u, @v) }.to_not raise_error
       expect { Measurable.tanimoto(@u, @v, @w) }.to raise_error(ArgumentError)
     end
-    
-    it "accepts one argument and returns the vector's norm"
-        
+            
     it "should be symmetric" do
       x = Measurable.tanimoto(@u, @v)
       y = Measurable.tanimoto(@v, @u)
@@ -130,17 +128,22 @@ describe Measurable do
   describe "Haversine distance" do
     
     before :all do
-      @u = [1, 3, 16]
-      @v = [1, 4, 16]
-      @w = [4, 5, 6]
+      @u = [1, 3]
+      @v = [1, 4]
+      @w = [4, 5]
     end
     
     it "accepts two arguments" do
-      expect { Measurable.haversine([1, 2], [4, 5]) }.to_not raise_error
-      expect { Measurable.haversine([1, 12], [4, 9], [2, 3]) }.to raise_error(ArgumentError)
+      expect { Measurable.haversine(@u, @v) }.to_not raise_error
+      expect { Measurable.haversine(@u, @v, @w) }.to raise_error(ArgumentError)
     end
     
-    it "should be symmetric"
+    it "should be symmetric" do
+      x = Measurable.haversine(@u, @v)
+      y = Measurable.haversine(@v, @u)
+      
+      x.should be_within(TOLERANCE).of(y)
+    end
 
     it "should return the correct value"
     
@@ -192,9 +195,7 @@ describe Measurable do
       expect { Measurable.jaccard(@u, @v) }.to_not raise_error
       expect { Measurable.jaccard(@u, @v, @w) }.to raise_error(ArgumentError)
     end
-    
-    it "accepts one argument and returns the vector's norm"
-        
+            
     it "should be symmetric"
 
     it "should return the correct value"
@@ -204,25 +205,11 @@ describe Measurable do
   
   describe "Binary Jaccard distance" do
     it "accepts two arguments"
-    
-    it "accepts one argument and returns the vector's norm"
-        
+            
     it "should be symmetric"
 
     it "should return the correct value"
     
     it "shouldn't work with vectors of different length"
-  end
-  
-  describe "Chebyshev distance" do
-    it "accepts two arguments"
-    
-    it "accepts one argument and returns the vector's norm"
-        
-    it "should be symmetric"
-
-    it "should return the correct value"
-    
-    it "shouldn't work with vectors of different length"
-  end
+  end  
 end
