@@ -57,7 +57,7 @@ Measurable.cosine([1, 2], [2, 3]) # => 0.00772
 Measurable.euclidean_squared([3, 4]) # => 25
 ```
 
-Maybe add support for (some of) NMatrix's dtypes, like `:float32`, `:float64`, `:complex64`, `:complex128`, etc. This will have to way until Measurable supports NMatrix's API.
+Maybe add support for (some of) NMatrix's dtypes, like `:float32`, `:float64`, `:complex64`, `:complex128`, etc. This will have to wait until Measurable supports NMatrix's API.
 
 ## License
 
