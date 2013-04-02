@@ -21,7 +21,9 @@ describe "Jaccard" do
 
     it "should return the correct value"
   
-    it "shouldn't work with vectors of different length"
+    it "shouldn't work with vectors of different length" do
+      expect { Measurable.jaccard(@u, [1, 2, 3, 4]) }.to raise_error
+    end
   end
   
   context "Binary Distance" do
@@ -45,6 +47,8 @@ describe "Jaccard" do
 
     it "should return the correct value"
   
-    it "shouldn't work with vectors of different length" 
+    it "shouldn't work with vectors of different length" do
+      expect { Measurable.binary_jaccard(@u, [1, 2, 3, 4]) }.to raise_error
+    end
   end
 end

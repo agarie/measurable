@@ -1,6 +1,8 @@
 # http://en.wikipedia.org/wiki/Jaccard_coefficient
 module Measurable
   def jaccard(u, v)
+    raise ArgumentError if u.size != v.size
+    
     1 - jaccard_index(u, v)
   end
 
@@ -12,6 +14,8 @@ module Measurable
   end
 
   def binary_jaccard(u, v)
+    raise ArgumentError if u.size != v.size
+    
     1 - binary_jaccard_index(u, v)
   end
 
