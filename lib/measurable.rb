@@ -16,8 +16,8 @@ module Measurable
   
   def binary_union(u, v)
     unions = []
-    u.each_with_index do |n, index|
-      if n == 1 || v[index] == 1
+    u.each_with_index do |i, index|
+      if v[i] == 1 || v[index] == 1
         unions << 1
       else
         unions << 0
@@ -30,7 +30,7 @@ module Measurable
   def binary_intersection(u, v)
     intersects = []
     u.each_with_index do |n, index|
-      if n == 1 && v[index] == 1
+      if v[i] == 1 && v[index] == 1
         intersects << 1
       else
         intersects << 0
