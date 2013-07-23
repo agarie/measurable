@@ -11,8 +11,8 @@ require 'measurable/maxmin'
 module Measurable
   extend self # expose all instance methods as singleton methods.
 
-  # PI = 3.1415926535
-  RAD_PER_DEG = 0.017453293  #  PI/180
+  # PI / 180 degrees.
+  RAD_PER_DEG = Math::PI / 180
 
   def binary_union(u, v)
     unions = []

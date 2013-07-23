@@ -14,7 +14,7 @@ module Measurable
 
   R_MILES = 3956     # radius of the great circle in miles
   R_KM = 6371        # radius in kilometers...some algorithms use 6367
-  
+
   # the great circle distance d will be in whatever units R is in
   R = {
     :miles => R_MILES,
@@ -24,13 +24,14 @@ module Measurable
   }
 
   def haversine(u, v, um = :meters)
+    # TODO: Create better exceptions.
     raise ArgumentError if u.size != 2 || v.size != 2
     raise ArgumentError if um.class != Symbol
-    
+
     dlon = u[1] - v[1]
     dlat = u[0] - v[0]
 
-    dlon_rad = dlon * RAD_PER_DEG 
+    dlon_rad = dlon * RAD_PER_DEG
     dlat_rad = dlat * RAD_PER_DEG
 
     lat1_rad = v[0] * RAD_PER_DEG

@@ -19,7 +19,7 @@ I only tested it with 2.0.0 (yes, yes, travis, I'll do it eventually). I want to
 - Euclidean distance
 - Squared euclidean distance
 - Cosine distance
-- Max-min distance (["K-Means clustering using max-min distance measure"][1])
+- Max-min distance (["K-Means clustering using max-min distance measure"][maxmin])
 - Jaccard distance
 - Tanimoto distance
 
@@ -42,7 +42,7 @@ The API I intend to support is something like this:
 
 ```ruby
 require "measurable"
-	
+
 u = NVector.ones(2)
 v = NVector.zeros(2)
 w = [1, 0]
@@ -65,6 +65,6 @@ See LICENSE for details.
 
 The original `distance_measures` gem is copyrighted by [@reddavis][reddavis].
 
-[1]: http://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=05156398
+[maxmin]: http://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=05156398
 
 [reddavis]: (https://github.com/reddavis)
