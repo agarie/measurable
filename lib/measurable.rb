@@ -13,30 +13,4 @@ module Measurable
 
   # PI / 180 degrees.
   RAD_PER_DEG = Math::PI / 180
-
-  def binary_union(u, v)
-    unions = []
-    u.each_with_index do |i, index|
-      if v[i] == 1 || v[index] == 1
-        unions << 1
-      else
-        unions << 0
-      end
-    end
-
-    unions
-  end
-
-  def binary_intersection(u, v)
-    intersects = []
-    u.each_with_index do |i, index|
-      if v[i] == 1 && v[index] == 1
-        intersects << 1
-      else
-        intersects << 0
-      end
-    end
-
-    intersects
-  end
 end
