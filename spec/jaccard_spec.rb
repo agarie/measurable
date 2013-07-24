@@ -2,9 +2,9 @@ describe "Jaccard" do
 
   context "Index" do
     before :all do
-      @u = [1, 3, 16]
-      @v = [1, 4, 16]
-      @w = [4, 5, 6]
+      @u = [1, 0, 1]
+      @v = [1, 1, 1]
+      @w = [0, 1, 0]
     end
 
     it "accepts two arguments" do
@@ -19,7 +19,11 @@ describe "Jaccard" do
       x.should be_within(TOLERANCE).of(y)
     end
 
-    it "should return the correct value"
+    it "should return the correct value" do
+      x = Measurable.jaccard_index(@u, @v)
+
+      x.should be_within(TOLERANCE).of(2.0 / 3.0)
+    end
 
     it "shouldn't work with vectors of different length" do
       expect { Measurable.jaccard_index(@u, [1, 2, 3, 4]) }.to raise_error
@@ -28,9 +32,9 @@ describe "Jaccard" do
 
   context "Distance" do
     before :all do
-      @u = [1, 3, 16]
-      @v = [1, 4, 16]
-      @w = [4, 5, 6]
+      @u = [1, 0, 1]
+      @v = [1, 1, 1]
+      @w = [0, 1, 0]
     end
 
     it "accepts two arguments" do
@@ -45,7 +49,11 @@ describe "Jaccard" do
       x.should be_within(TOLERANCE).of(y)
     end
 
-    it "should return the correct value"
+    it "should return the correct value" do
+      x = Measurable.jaccard(@u, @v)
+
+      x.should be_within(TOLERANCE).of(1.0 / 3.0)
+    end
 
     it "shouldn't work with vectors of different length" do
       expect { Measurable.jaccard(@u, [1, 2, 3, 4]) }.to raise_error

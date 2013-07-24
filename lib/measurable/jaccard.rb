@@ -30,16 +30,39 @@ module Measurable
     raise ArgumentError if u.size != v.size
 
     intersection = u.zip(v).reduce(0) do |acc, elem|
-      elem[0] == elem[1] ? (acc + 1) : acc
+      # Both u and v must have this element.
+      elem[0] + elem[1] == 2 ? (acc + 1) : acc
     end
 
-    union = u.zip(v).reduce(0) do
-      |acc, elem| elem[0] * elem[1] == 1 ? (acc + 1) : acc
+    union = u.zip(v).reduce(0) do |acc, elem|
+      # One of u and v must have this element.
+      elem[0] + elem[1] >= 1 ? (acc + 1) : acc
     end
 
     intersection.to_f / union
   end
 
+  # call-seq:
+  #     jaccard(u, v) -> Float
+  #
+  # The jaccard distance is a measure of dissimilarity between two sets. It is
+  # calculated as:
+  #   jaccard_distance = 1 - jaccard_index
+  #
+  # This is a proper metric, i.e. the following conditions hold:
+  #   - Symmetry:              jaccard(u, v) == jaccard(v, u)
+  #   - Non-negative:          jaccard(u, v) >= 0
+  #   - Coincidence axiom:     jaccard(u, v) == 0 if u == v
+  #   - Triangular inequality: jaccard(u, v) <= jaccard(u, w) + jaccard(w, v)
+  #
+  # * *Arguments* :
+  #   - +u+ -> Array of 1s and 0s.
+  #   - +v+ -> Array of 1s and 0s.
+  # * *Returns* :
+  #   - Float value representing the dissimilarity between +u+ and +v+.
+  # * *Raises* :
+  #   - +ArgumentError+ -> The size of the input arrays doesn't match.
+  #
   def jaccard(u, v)
     1 - jaccard_index(u, v)
   end
