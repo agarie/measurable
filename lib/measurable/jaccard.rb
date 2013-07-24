@@ -14,7 +14,7 @@ module Measurable
   #
   # Because |intersection| = |(1, 0, 1)| = 2 and |union| = |(1, 1, 1)| = 3.
   #
-  # http://en.wikipedia.org/wiki/Jaccard_coefficient
+  # See: http://en.wikipedia.org/wiki/Jaccard_coefficient
   #
   # * *Arguments* :
   #   - +u+ -> Array of 1s and 0s.

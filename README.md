@@ -1,8 +1,8 @@
 # Measurable
 
-This gem is meant to be used for research in machine learning algorithms, to test what metric is best for certain kinds of datasets. My objective is to be able to compare different metrics just by changing which method is called.
+This gem is meant to be used in machine learning research, to test what metric is best for certain kinds of datasets. My objective is to be able to compare different metrics just by changing which method is called.
 
-Besides the `Array` class, I also want to support [NMatrix](http://github.com/sciruby/nmatrix)'s `NVector`.
+Besides the `Array` class, I also want to support `NVector` (from [NMatrix](http://github.com/sciruby/nmatrix)).
 
 The distance measures will be created in Ruby first. If I see that it's really too slow, I'll write some methods in C (or Java, for JRuby).
 
