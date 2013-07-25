@@ -14,7 +14,7 @@ module Measurable
   #   - The normalized dot product of +u+ and +v+, that is, the angle between
   #     them in the n-dimensional space.
   # * *Raises* :
-  #   - +ArgumentError+ -> The sizes of +u+ and +v+ doesn't match.
+  #   - +ArgumentError+ -> The sizes of +u+ and +v+ don't match.
   #
   def cosine(u, v)
     # TODO: Change this to a more specific, custom-made exception.

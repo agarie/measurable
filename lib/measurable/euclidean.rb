@@ -17,7 +17,7 @@ module Measurable
   #   - The euclidean norm of +u+ or the euclidean distance between +u+ and
   #     +v+.
   # * *Raises* :
-  #   - +ArgumentError+ -> The sizes of +u+ and +v+ doesn't match.
+  #   - +ArgumentError+ -> The sizes of +u+ and +v+ don't match.
   #
   def euclidean(u, v = nil)
     # If the second argument is nil, the method should return the norm of
@@ -57,7 +57,7 @@ module Measurable
   #   - The squared value of the euclidean norm of +u+ or of the euclidean
   #     distance between +u+ and +v+.
   # * *Raises* :
-  #   - +ArgumentError+ -> The sizes of +u+ and +v+ doesn't match.
+  #   - +ArgumentError+ -> The sizes of +u+ and +v+ don't match.
   #
   def euclidean_squared(u, v = nil)
     # If the second argument is nil, the method should return the norm of

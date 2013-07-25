@@ -12,7 +12,7 @@ module Measurable
   # * *Returns* :
   #   - The Minkowski (or L1) distance between +u+ and +v+.
   # * *Raises* :
-  #   - +ArgumentError+ -> The sizes of +u+ and +v+ doesn't match.
+  #   - +ArgumentError+ -> The sizes of +u+ and +v+ don't match.
   #
   def minkowski(u, v)
     # TODO: Change this to a more specific, custom-made exception.

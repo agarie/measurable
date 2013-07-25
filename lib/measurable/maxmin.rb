@@ -17,7 +17,7 @@ module Measurable
   # * *Returns* :
   #   - Similarity between +u+ and +v+.
   # * *Raises* :
-  #   - +ArgumentError+ -> The sizes of +u+ and +v+ doesn't match.
+  #   - +ArgumentError+ -> The sizes of +u+ and +v+ don't match.
   #
   def maxmin(u, v)
     # TODO: Change this to a more specific, custom-made exception.

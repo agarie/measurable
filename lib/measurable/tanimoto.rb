@@ -21,7 +21,7 @@ module Measurable
   # * *Returns* :
   #   - A measure of the similarity between +u+ and +v+.
   # * *Raises* :
-  #   - +ArgumentError+ -> The sizes of +u+ and +v+ doesn't match.
+  #   - +ArgumentError+ -> The sizes of +u+ and +v+ don't match.
   #
   def tanimoto(u, v)
     # TODO: Change this to a more specific, custom-made exception.
