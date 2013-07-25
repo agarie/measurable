@@ -2,6 +2,7 @@ require 'measurable/version'
 
 # Distance measures. The require order is important.
 require 'measurable/euclidean'
+require 'measurable/minkowski'
 require 'measurable/cosine'
 require 'measurable/jaccard'
 require 'measurable/tanimoto'

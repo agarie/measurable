@@ -27,12 +27,11 @@ The following are the similarity measures supported at the moment:
 - Jaccard distance
 - Tanimoto distance
 - Haversine distance
+- Minkowski (Cityblock or Manhattan) distance
 
 These still need to be implemented:
 
-- Cityblock distance
 - Chebyshev distance
-- Minkowski distance
 - Hamming distance
 - Correlation distance
 - Chi-square distance
