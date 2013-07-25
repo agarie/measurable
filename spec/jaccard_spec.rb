@@ -26,7 +26,7 @@ describe "Jaccard" do
     end
 
     it "shouldn't work with vectors of different length" do
-      expect { Measurable.jaccard_index(@u, [1, 2, 3, 4]) }.to raise_error
+      expect { Measurable.jaccard_index(@u, [1, 2, 3, 4]) }.to raise_error(ArgumentError)
     end
   end
 
@@ -56,7 +56,7 @@ describe "Jaccard" do
     end
 
     it "shouldn't work with vectors of different length" do
-      expect { Measurable.jaccard(@u, [1, 2, 3, 4]) }.to raise_error
+      expect { Measurable.jaccard(@u, [1, 2, 3, 4]) }.to raise_error(ArgumentError)
     end
   end
 end

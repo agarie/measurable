@@ -32,6 +32,6 @@ describe "Haversine distance" do
   end
 
   it "should only work with [lat, long] vectors" do
-    expect { Measurable.haversine([2, 4], [1, 3, 5, 7]) }.to raise_error
+    expect { Measurable.haversine([2, 4], [1, 3, 5, 7]) }.to raise_error(ArgumentError)
   end
 end

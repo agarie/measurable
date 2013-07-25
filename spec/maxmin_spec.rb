@@ -25,6 +25,6 @@ describe "Max-min distance" do
   end
 
   it "shouldn't work with vectors of different length" do
-    expect { Measurable.maxmin(@u, [1, 3, 5, 7]) }.to raise_error
+    expect { Measurable.maxmin(@u, [1, 3, 5, 7]) }.to raise_error(ArgumentError)
   end
 end
