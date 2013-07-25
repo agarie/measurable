@@ -1,6 +1,6 @@
 # Measurable
 
-This gem is meant to be used in machine learning research, to test what metric is best for certain kinds of datasets. My objective is to be able to compare different metrics just by changing which method is called.
+A gem to test what metric is best for certain kinds of datasets in machine learning.
 
 Besides the `Array` class, I also want to support `NVector` (from [NMatrix](http://github.com/sciruby/nmatrix)).
 
@@ -14,14 +14,19 @@ This is a fork of the gem [Distance Measure](https://github.com/reddavis/Distanc
 
 I only tested it with 2.0.0 (yes, yes, travis, I'll do it eventually). I want to support JRuby as well.
 
-## Distance measures that I want to support for the moment
+## Distance measures
+
+I'm using the term "distance measure" without much concern for the strict mathematical definition of a metric. If the documentation for one of the methods isn't clear about it being or not a metric, please open an issue.
+
+The following are the similarity measures supported at the moment:
 
 - Euclidean distance
 - Squared euclidean distance
 - Cosine distance
-- Max-min distance (["K-Means clustering using max-min distance measure"][maxmin])
+- Max-min distance (from ["K-Means clustering using max-min distance measure"][maxmin])
 - Jaccard distance
 - Tanimoto distance
+- Haversine distance
 
 These still need to be implemented:
 
@@ -57,7 +62,17 @@ Measurable.cosine([1, 2], [2, 3]) # => 0.00772
 Measurable.euclidean_squared([3, 4]) # => 25
 ```
 
-Maybe add support for (some of) NMatrix's dtypes, like `:float32`, `:float64`, `:complex64`, `:complex128`, etc. This will have to wait until Measurable supports NMatrix's API.
+## Documentation
+
+`RDoc` syntax is used to document the project. To build it locally, you'll need to install the [Fivefish generator](https://github.com/ged/rdoc-generator-fivefish) (`gem install rdoc-generator-fivefish`) and run the following command:
+
+```bash
+rdoc -f fivefish -m README.md *.md LICENSE lib/
+```
+
+I want to be able to use a Rake task to generate the documentation, thus allowing me to forget the specific command. However, there's a bug in `RDoc::Task` in which [custom generators (like Fivefish) can't be used](https://github.com/rdoc/rdoc/issues/246).
+
+If there's something wrong with an explanation or if there's information missing, please open an issue or send a pull request.
 
 ## License
 
@@ -66,5 +81,4 @@ See LICENSE for details.
 The original `distance_measures` gem is copyrighted by [@reddavis][reddavis].
 
 [maxmin]: http://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=05156398
-
 [reddavis]: (https://github.com/reddavis)
