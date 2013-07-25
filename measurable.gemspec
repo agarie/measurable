@@ -4,12 +4,13 @@ require 'measurable/version'
 require 'date'
 
 Gem::Specification.new do |gem|
-  gem.name = "measurable"  
+  gem.name = "measurable"
   gem.version = Measurable::VERSION
   gem.date = Date.today.to_s
+  gem.license = "MIT"
   gem.summary = %Q{A Ruby gem with a lot of distance measures for your projects.}
   gem.description = %Q{A Ruby gem with a lot of distance measures for your projects.}
-  
+
   gem.authors = ["Carlos Agarie"]
   gem.email = "carlos.agarie@gmail.com"
   gem.homepage = "http://github.com/agarie/measurable"
