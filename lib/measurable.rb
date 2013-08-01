@@ -6,8 +6,9 @@ require 'measurable/minkowski'
 require 'measurable/cosine'
 require 'measurable/jaccard'
 require 'measurable/tanimoto'
-require 'measurable/haversine'
+require 'measurable/chebyshev'
 require 'measurable/maxmin'
+require 'measurable/haversine'
 
 module Measurable
   # PI / 180 degrees.
