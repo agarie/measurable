@@ -3,9 +3,11 @@ module Measurable
   # call-seq:
   #     hamming(s1, s2) -> Integer
   #
+  # Count the number of different characters between strings +s1+ and +s2+,
+  # that is, how many substitutions are necessary to change +s1+ into +s2+ and
+  # vice-versa.
   #
-  #
-  # See: http://en.wikipedia.org/wiki/Cosine_similarity
+  # See: http://en.wikipedia.org/wiki/Hamming_distance
   #
   # * *Arguments* :
   #   - +s1+ -> A String.
