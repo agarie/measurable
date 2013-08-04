@@ -9,6 +9,7 @@ require 'measurable/tanimoto'
 require 'measurable/chebyshev'
 require 'measurable/maxmin'
 require 'measurable/haversine'
+require 'measurable/hamming'
 
 module Measurable
   # PI / 180 degrees.

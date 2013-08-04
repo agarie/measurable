@@ -28,17 +28,19 @@ The following are the similarity measures supported at the moment:
 - Tanimoto distance
 - Haversine distance
 - Minkowski (Cityblock or Manhattan) distance
+- Chebyshev distance
+- Hamming distance
 
 These still need to be implemented:
 
-- Chebyshev distance
-- Hamming distance
 - Correlation distance
 - Chi-square distance
 - Kullback-Leibler divergence
 - Jensen-Shannon divergence
 - Mahalanobis distance
 - Squared Mahalanobis distance
+
+I plan to update the specs to reflect that each method is (or isn't) a mathematical metric, but I want to finish implementing them first. Any help is appreciated! :)
 
 ## How to use
 
