@@ -7,7 +7,18 @@ GEM
   remote: http://rubygems.org/
   specs:
     diff-lcs (1.1.3)
+    inversion (0.12.2)
+      loggability (~> 0.4)
+    json (1.7.7)
+    loggability (0.6.1)
     rake (0.9.6)
+    rdoc (4.0.1)
+      json (~> 1.4)
+    rdoc-generator-fivefish (0.1.0)
+      inversion (~> 0.12)
+      loggability (~> 0.6)
+      rdoc (~> 4.0)
+      yajl-ruby (~> 1.1)
     rspec (2.9.0)
       rspec-core (~> 2.9.0)
       rspec-expectations (~> 2.9.0)
@@ -16,6 +27,7 @@ GEM
     rspec-expectations (2.9.1)
       diff-lcs (~> 1.1.3)
     rspec-mocks (2.9.0)
+    yajl-ruby (1.1.0)
 
 PLATFORMS
   ruby
@@ -24,4 +36,6 @@ DEPENDENCIES
   bundler
   measurable!
   rake (~> 0.9)
+  rdoc (~> 4.0.0)
+  rdoc-generator-fivefish
   rspec (~> 2.9.0)
