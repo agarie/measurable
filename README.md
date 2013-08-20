@@ -68,10 +68,8 @@ Measurable.euclidean_squared([3, 4]) # => 25
 `RDoc` syntax is used to document the project. To build it locally, you'll need to install the [Fivefish generator](https://github.com/ged/rdoc-generator-fivefish) (`gem install rdoc-generator-fivefish`) and run the following command:
 
 ```bash
-rdoc -f fivefish -m README.md *.md LICENSE lib/
+rake rdoc
 ```
-
-I want to be able to use a Rake task to generate the documentation, thus allowing me to forget the specific command. However, there's a bug in `RDoc::Task` in which [custom generators (like Fivefish) can't be used](https://github.com/rdoc/rdoc/issues/246).
 
 If there's something wrong with an explanation or if there's information missing, please open an issue or send a pull request.
 
