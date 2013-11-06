@@ -49,8 +49,8 @@ The API I intend to support is something like this:
 ```ruby
 require "measurable"
 
-u = NVector.ones(2)
-v = NVector.zeros(2)
+u = NMatrix.ones([2, 1])
+v = NMatrix.zeros([2, 1])
 w = [1, 0]
 x = [2, 2]
 
