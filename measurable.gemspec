@@ -24,8 +24,8 @@ Gem::Specification.new do |gem|
   gem.required_ruby_version = '>= 1.9.3'
 
   gem.add_development_dependency 'bundler'
-  gem.add_development_dependency 'rake', '~> 0.9'
-  gem.add_development_dependency 'rspec', '~> 2.9.0'
-  gem.add_development_dependency 'rdoc', '~> 4.0.0'
+  gem.add_development_dependency 'rake', '> 0.10'
+  gem.add_development_dependency 'rspec', '~> 2.9'
+  gem.add_development_dependency 'rdoc', '> 4.0'
   gem.add_development_dependency 'rdoc-generator-fivefish'
 end

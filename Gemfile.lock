@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    measurable (0.0.6)
+    measurable (0.0.7)
 
 GEM
   remote: http://rubygems.org/
@@ -11,7 +11,7 @@ GEM
       loggability (~> 0.4)
     json (1.7.7)
     loggability (0.6.1)
-    rake (0.9.6)
+    rake (10.1.1)
     rdoc (4.0.1)
       json (~> 1.4)
     rdoc-generator-fivefish (0.1.0)
@@ -35,7 +35,7 @@ PLATFORMS
 DEPENDENCIES
   bundler
   measurable!
-  rake (~> 0.9)
-  rdoc (~> 4.0.0)
+  rake (> 0.10)
+  rdoc (> 4.0.0)
   rdoc-generator-fivefish
   rspec (~> 2.9.0)
