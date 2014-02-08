@@ -13,7 +13,7 @@ rescue Bundler::BundlerError => e
   exit e.status_code
 end
 
-task :default => [:spec, :rdoc]
+task :default => [:spec]
 
 # Run all the specs.
 RSpec::Core::RakeTask.new(:spec)
@@ -23,6 +23,15 @@ RDoc::Task.new do |rdoc|
   rdoc.rdoc_files.include("README.md", "LICENSE", "lib")
   rdoc.generator = "fivefish"
   rdoc.external = true
+end
+
+desc "Open IRB with Measurable loaded."
+task :console do
+  require 'irb'
+  require 'irb/completion'
+  require 'measurable'
+  ARGV.clear
+  IRB.start
 end
 
 # Compile task.
