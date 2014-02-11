@@ -35,7 +35,7 @@ PLATFORMS
 DEPENDENCIES
   bundler
   measurable!
-  rake (> 0.10)
-  rdoc (> 4.0)
+  rake (~> 10.1)
+  rdoc (~> 4.1)
   rdoc-generator-fivefish
-  rspec (~> 2.9)
+  rspec (~> 2.1)
