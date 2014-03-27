@@ -1,6 +1,7 @@
 # Measurable
 
 [![Build Status](https://travis-ci.org/agarie/measurable.svg?branch=master)](https://travis-ci.org/agarie/measurable)
+[![Code Climate](https://codeclimate.com/github/agarie/measurable.png)](https://codeclimate.com/github/agarie/measurable)
 
 A gem to test what metric is best for certain kinds of datasets in machine learning.
 
