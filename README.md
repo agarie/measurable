@@ -1,5 +1,7 @@
 # Measurable
 
+[![Build Status](https://travis-ci.org/agarie/measurable.svg?branch=master)](https://travis-ci.org/agarie/measurable)
+
 A gem to test what metric is best for certain kinds of datasets in machine learning.
 
 Besides the `Array` class, I also want to support `NVector` (from [NMatrix](http://github.com/sciruby/nmatrix)).
