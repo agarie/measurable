@@ -3,3 +3,4 @@ tmp/*
 benchmarks/*
 lib/*.bundle
 html/
+Gemfile.lock
