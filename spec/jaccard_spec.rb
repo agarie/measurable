@@ -22,7 +22,7 @@ describe "Jaccard" do
     it "should return the correct value" do
       x = Measurable.jaccard_index(@u, @v)
 
-      x.should be_within(TOLERANCE).of(2.0 / 3.0)
+      x.should be_within(TOLERANCE).of(1.0 / 2.0)
     end
 
     it "shouldn't work with vectors of different length" do
@@ -52,7 +52,7 @@ describe "Jaccard" do
     it "should return the correct value" do
       x = Measurable.jaccard(@u, @v)
 
-      x.should be_within(TOLERANCE).of(1.0 / 3.0)
+      x.should be_within(TOLERANCE).of(1.0 / 2.0)
     end
 
     it "shouldn't work with vectors of different length" do

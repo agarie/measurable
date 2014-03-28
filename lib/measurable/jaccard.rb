@@ -29,17 +29,10 @@ module Measurable
     # TODO: Change this to a more specific, custom-made exception.
     raise ArgumentError if u.size != v.size
 
-    intersection = u.zip(v).reduce(0) do |acc, elem|
-      # Both u and v must have this element.
-      elem[0] + elem[1] == 2 ? (acc + 1) : acc
-    end
+    intersection = u & v
+    union = u | v
 
-    union = u.zip(v).reduce(0) do |acc, elem|
-      # One of u and v must have this element.
-      elem[0] + elem[1] >= 1 ? (acc + 1) : acc
-    end
-
-    intersection.to_f / union
+    intersection.length.to_f / union.length
   end
 
   # call-seq:
