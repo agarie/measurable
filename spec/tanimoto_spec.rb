@@ -21,7 +21,7 @@ describe "Tanimoto distance" do
   it "should return the correct value" do
     x = Measurable.tanimoto(@u, @v)
 
-    x.should be_within(TOLERANCE).of(-Math.log2(2.0 / 3.0))
+    x.should be_within(TOLERANCE).of(-Math.log2(1.0 / 2.0))
   end
 
   it "shouldn't work with vectors of different length" do
