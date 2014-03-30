@@ -2,17 +2,27 @@ module Measurable
   module Levenshtein
 
     def levenshtein(u, v)
-      v_size = v.size
-      u_size = u.size
-      return v_size if u_size == 0
-      return u_size if v_size == 0
-      cost = u_size == v_size ? 0 : 1
+      return 0 if u == v
+      return u.size if v.size == 0
+      return v.size if u.size == 0
 
-      [
-        (levenshtein(u, v[1,v_size-1]) + 1),
-        (levenshtein(u[1,u_size-1], v) + 1),
-        (levenshtein(u[1,u_size-1], v[1,v_size-1]) + cost)
-      ].min
+      matrix = Array.new(u.size+1) { (0..v.size).to_a }
+
+      (1..u.size).each do |i|
+        (1..v.size).each do |j|
+          if u[i] == v[j]
+            matrix[i][j] = matrix[i-1][j-1]
+          else
+            matrix[i][j] = [
+              matrix[i-1][j] + 1,   # dejetion
+              matrix[i][j-1] + 1,   # insertion
+              matrix[i-1][j-1] + 1, # substitution
+            ].min
+          end
+        end
+      end
+
+      matrix[u.size][v.size]
     end
   end
 
