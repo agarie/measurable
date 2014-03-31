@@ -24,5 +24,13 @@ describe "Minkowski" do
     it "shouldn't work with vectors of different length" do
       expect { Measurable.minkowski(@u, [2, 2, 2, 2]) }.to raise_error(ArgumentError)
     end
+
+    it "can be extended separately" do
+      klass = Class.new do
+        extend Measurable::Minkowski
+      end
+
+      klass.minkowski(@u, @u).should == 0
+    end
   end
 end

@@ -27,4 +27,12 @@ describe "Hamming distance" do
     expect { Measurable.hamming(@u, "smallstring") }.to raise_error(ArgumentError)
     expect { Measurable.hamming(@u, "largestring" * 20) }.to raise_error(ArgumentError)
   end
+
+  it "can be extended separately" do
+    klass = Class.new do
+      extend Measurable::Hamming
+    end
+
+    klass.hamming(@u, @v).should == 17
+  end
 end

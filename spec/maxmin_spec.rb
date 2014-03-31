@@ -27,4 +27,14 @@ describe "Max-min distance" do
   it "shouldn't work with vectors of different length" do
     expect { Measurable.maxmin(@u, [1, 3, 5, 7]) }.to raise_error(ArgumentError)
   end
+
+  it "can be included separately" do
+    klass = Class.new do
+      extend Measurable::Maxmin
+    end
+    x = klass.maxmin(@u, @v)
+
+    x.should be_within(TOLERANCE).of(0.9523809523)
+  end
+
 end

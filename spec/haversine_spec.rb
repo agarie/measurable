@@ -34,4 +34,14 @@ describe "Haversine distance" do
   it "should only work with [lat, long] vectors" do
     expect { Measurable.haversine([2, 4], [1, 3, 5, 7]) }.to raise_error(ArgumentError)
   end
+
+  it "can be extended seperately" do
+    klass = Class.new do
+      extend Measurable::Haversine
+    end
+
+    x = klass.haversine(@u, @v, :km)
+
+    x.should be_within(@haversine_tolerance).of(18533)
+  end
 end

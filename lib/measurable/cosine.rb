@@ -51,13 +51,15 @@ module Measurable
       1 - cosine_similarity(u, v)
     end
 
-    def self.extended(klass) # :nodoc:
-      klass.extend Measurable::Euclidean
+    def self.extended(base) # :nodoc:
+      base.extend Measurable::Euclidean
+
       super
     end
 
-    def self.included(klass) # :nodoc:
-      klass.include Measurable::Euclidean
+    def self.included(base) # :nodoc:
+      base.include Measurable::Euclidean
+
       super
     end
   end
