@@ -10,15 +10,15 @@ module Measurable
   # cardinality of set x.
   #
   # For example:
-  #   jaccard_index([1, 0, 1], [1, 1, 1]) == 0.666...
+  #   jaccard_index([1, 0, 1], [1, 1, 1]) == 0.5
   #
-  # Because |intersection| = |(1, 0, 1)| = 2 and |union| = |(1, 1, 1)| = 3.
+  # Because |intersection| = |(1)| = 1 and |union| = |(0, 1)| = 2.
   #
   # See: http://en.wikipedia.org/wiki/Jaccard_coefficient
   #
   # * *Arguments* :
-  #   - +u+ -> Array of 1s and 0s.
-  #   - +v+ -> Array of 1s and 0s.
+  #   - +u+ -> Array.
+  #   - +v+ -> Array.
   # * *Returns* :
   #   - Float value representing the Jaccard similarity coefficient between
   #     +u+ and +v+.
@@ -49,8 +49,8 @@ module Measurable
   #   - Triangular inequality: jaccard(u, v) <= jaccard(u, w) + jaccard(w, v)
   #
   # * *Arguments* :
-  #   - +u+ -> Array of 1s and 0s.
-  #   - +v+ -> Array of 1s and 0s.
+  #   - +u+ -> Array.
+  #   - +v+ -> Array.
   # * *Returns* :
   #   - Float value representing the dissimilarity between +u+ and +v+.
   # * *Raises* :
