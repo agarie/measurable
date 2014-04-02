@@ -1,27 +1,5 @@
 describe Measurable::Levenshtein do
 
-  # def levenshtein(func, t, **kwargs):
-
-  # # types; only for c
-  # if kwargs["lang"] == "C":
-  # 	try:
-  # 		func(1, t("foo"))
-  # 	except ValueError:
-  # 		pass
-  # 	try:
-  # 		func(t("foo"), 1)
-  # 	except ValueError:
-  # 		pass
-  #
-  # # empty strings
-  # assert func(t(""), t("")) == 0
-  # assert func(t(""), t("abcd")) == func(t("abcd"), t("")) == 4
-  #
-  # # edit ops
-  # assert func(t("aa"), t("aa")) == 0
-  # assert func(t("ab"), t("aa")) == 1
-  # assert func(t("ab"), t("a")) == 1
-  # assert func(t("ab"), t("abc")) == 1
   context "strings" do
 
     it "handles empty" do

@@ -1,6 +1,30 @@
 module Measurable
   module Levenshtein
 
+    # call-seq:
+    #     levenshtein(u, v) -> Integer
+    #
+    # Give the edit distance between two binary sequences +u+ and +v+ where each
+    # edit (insertion, deletion, substitution) required to change on into the
+    # other increments the total distance.
+    #
+    # For example:
+    #   levenshtein('kitten', 'sitting') == 3
+    #
+    # Because
+    # 1. kitten -> sitten (substitution "s" for "k")
+    # 2. sitten -> sittin (substitution "i" for "e")
+    # 3. sittin -> sitting (insertion of "g" at the end)
+    #
+    # See: http://en.wikipedia.org/wiki/Levenshtein_distance
+    #
+    # * *Arguments* :
+    #   - +u+ -> Array or String.
+    #   - +v+ -> Array or String.
+    # * *Returns* :
+    #   - Integer value representing the Levenshtein distance between
+    #     +u+ and +v+.
+    #
     def levenshtein(u, v)
       return 0 if u == v
       return u.size if v.size == 0
