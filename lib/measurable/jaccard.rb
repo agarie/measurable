@@ -10,15 +10,15 @@ module Measurable
   # cardinality of set x.
   #
   # For example:
-  #   jaccard_index([1, 0, 1], [1, 1, 1]) == 0.666...
+  #   jaccard_index([1, 0, 1], [1, 1, 1]) == 0.5
   #
-  # Because |intersection| = |(1, 0, 1)| = 2 and |union| = |(1, 1, 1)| = 3.
+  # Because |intersection| = |(1)| = 1 and |union| = |(0, 1)| = 2.
   #
   # See: http://en.wikipedia.org/wiki/Jaccard_coefficient
   #
   # * *Arguments* :
-  #   - +u+ -> Array of 1s and 0s.
-  #   - +v+ -> Array of 1s and 0s.
+  #   - +u+ -> Array.
+  #   - +v+ -> Array.
   # * *Returns* :
   #   - Float value representing the Jaccard similarity coefficient between
   #     +u+ and +v+.
@@ -29,17 +29,10 @@ module Measurable
     # TODO: Change this to a more specific, custom-made exception.
     raise ArgumentError if u.size != v.size
 
-    intersection = u.zip(v).reduce(0) do |acc, elem|
-      # Both u and v must have this element.
-      elem[0] + elem[1] == 2 ? (acc + 1) : acc
-    end
+    intersection = u & v
+    union = u | v
 
-    union = u.zip(v).reduce(0) do |acc, elem|
-      # One of u and v must have this element.
-      elem[0] + elem[1] >= 1 ? (acc + 1) : acc
-    end
-
-    intersection.to_f / union
+    intersection.length.to_f / union.length
   end
 
   # call-seq:
@@ -56,8 +49,8 @@ module Measurable
   #   - Triangular inequality: jaccard(u, v) <= jaccard(u, w) + jaccard(w, v)
   #
   # * *Arguments* :
-  #   - +u+ -> Array of 1s and 0s.
-  #   - +v+ -> Array of 1s and 0s.
+  #   - +u+ -> Array.
+  #   - +v+ -> Array.
   # * *Returns* :
   #   - Float value representing the dissimilarity between +u+ and +v+.
   # * *Raises* :
