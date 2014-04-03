@@ -10,6 +10,7 @@ require 'measurable/chebyshev'
 require 'measurable/maxmin'
 require 'measurable/haversine'
 require 'measurable/hamming'
+require 'measurable/levenshtein'
 
 module Measurable
   # PI / 180 degrees.

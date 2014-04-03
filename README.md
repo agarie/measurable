@@ -33,6 +33,7 @@ The following are the similarity measures supported at the moment:
 - Minkowski (Cityblock or Manhattan) distance
 - Chebyshev distance
 - Hamming distance
+- [Levenshtein distance](http://en.wikipedia.org/wiki/Levenshtein_distance)
 
 These still need to be implemented:
 
