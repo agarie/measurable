@@ -32,5 +32,13 @@ describe "Minkowski" do
 
       klass.minkowski(@u, @u).should == 0
     end
+
+    it "can be included separately" do
+      klass = Class.new do
+        include Measurable::Minkowski
+      end
+
+      klass.new.minkowski(@u, @u).should == 0
+    end
   end
 end

@@ -36,7 +36,17 @@ describe "Jaccard" do
 
       x = klass.jaccard_index(@u, @v)
 
-      x.should be_within(TOLERANCE).of(2.0 / 3.0)
+      x.should be_within(TOLERANCE).of(1.0 / 2.0)
+    end
+
+    it "can be included separately" do
+      klass = Class.new do
+        include Measurable::Jaccard
+      end
+
+      x = klass.new.jaccard_index(@u, @v)
+
+      x.should be_within(TOLERANCE).of(1.0 / 2.0)
     end
 
   end

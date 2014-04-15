@@ -44,4 +44,14 @@ describe "Haversine distance" do
 
     x.should be_within(@haversine_tolerance).of(18533)
   end
+
+  it "can be included seperately" do
+    klass = Class.new do
+      include Measurable::Haversine
+    end
+
+    x = klass.new.haversine(@u, @v, :km)
+
+    x.should be_within(@haversine_tolerance).of(18533)
+  end
 end

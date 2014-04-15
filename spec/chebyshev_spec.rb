@@ -27,7 +27,7 @@ describe "Chebyshev distance" do
     expect { Measurable.chebyshev(@u, [1, 3, 5, 7]) }.to raise_error(ArgumentError)
   end
 
-  it "can be used separately" do
+  it "can be extended separately" do
     klass = Class.new do
       extend Measurable::Chebyshev
     end
@@ -35,4 +35,14 @@ describe "Chebyshev distance" do
     x = klass.chebyshev(@u, @v)
     x.should be_within(TOLERANCE).of(3.1)
   end
+
+  it "can be included separately" do
+    klass = Class.new do
+      include Measurable::Chebyshev
+    end
+
+    x = klass.new.chebyshev(@u, @v)
+    x.should be_within(TOLERANCE).of(3.1)
+  end
+
 end

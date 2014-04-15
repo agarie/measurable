@@ -35,7 +35,7 @@ describe "Tanimoto distance" do
 
     x = klass.tanimoto(@u, @v)
 
-    x.should be_within(TOLERANCE).of(-Math.log2(2.0 / 3.0))
+    x.should be_within(TOLERANCE).of(-Math.log2(1.0 / 2.0))
   end
 
   it "can be included separately" do
@@ -45,6 +45,6 @@ describe "Tanimoto distance" do
 
     x = klass.new.tanimoto(@u, @v)
 
-    x.should be_within(TOLERANCE).of(-Math.log2(2.0 / 3.0))
+    x.should be_within(TOLERANCE).of(-Math.log2(1.0 / 2.0))
   end
 end

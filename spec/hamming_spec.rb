@@ -35,4 +35,12 @@ describe "Hamming distance" do
 
     klass.hamming(@u, @v).should == 17
   end
+
+  it "can be included separately" do
+    klass = Class.new do
+      include Measurable::Hamming
+    end
+
+    klass.new.hamming(@u, @v).should == 17
+  end
 end
