@@ -52,14 +52,16 @@ module Measurable
     end
 
     def self.extended(base) # :nodoc:
-      base.extend Measurable::Euclidean
-
+      base.instance_eval do
+        extend Measurable::Euclidean
+      end
       super
     end
 
     def self.included(base) # :nodoc:
-      base.include Measurable::Euclidean
-
+      base.class_eval do
+        include Measurable::Euclidean
+      end
       super
     end
   end

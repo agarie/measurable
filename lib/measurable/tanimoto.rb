@@ -31,23 +31,19 @@ module Measurable
     end
 
     def self.extended(base) # :nodoc:
-      base.extend Measurable::Jaccard
-
       # Tanimoto similarity is the same as Jaccard similarity.
       base.instance_eval do
+        extend Measurable::Jaccard
         alias :tanimoto_similarity :jaccard
       end
-
       super
     end
 
     def self.included(base) # :nodoc:
-      base.include Measurable::Jaccard
-
       base.class_eval do
+        include Measurable::Jaccard
         alias :tanimoto_similarity :jaccard
       end
-
       super
     end
   end
