@@ -1,5 +1,21 @@
 describe Measurable::Levenshtein do
 
+  it "can be extended seperately" do
+    klass = Class.new do
+      extend Measurable::Levenshtein
+    end
+
+    klass.levenshtein("ab", "abc").should == 1
+  end
+
+  it "can be included seperately" do
+    klass = Class.new do
+      include Measurable::Levenshtein
+    end
+
+    klass.new.levenshtein("ab", "abc").should == 1
+  end
+
   context "strings" do
 
     it "handles empty" do

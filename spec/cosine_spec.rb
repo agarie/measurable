@@ -27,6 +27,22 @@ describe "Cosine" do
     it "shouldn't work with vectors of different length" do
       expect { Measurable.cosine_similarity(@u, [1, 3, 5, 7]) }.to raise_error(ArgumentError)
     end
+
+    it "can be extended separately" do
+      klass = Class.new do
+        extend Measurable::Cosine
+      end
+      x = klass.cosine_similarity(@u, @v)
+      x.should be_within(TOLERANCE).of(0.992277877)
+    end
+
+    it "can be extended separately" do
+      klass = Class.new do
+        include Measurable::Cosine
+      end
+      x = klass.new.cosine_similarity(@u, @v)
+      x.should be_within(TOLERANCE).of(0.992277877)
+    end
   end
 
   context "Distance" do

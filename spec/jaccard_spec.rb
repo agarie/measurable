@@ -28,6 +28,27 @@ describe "Jaccard" do
     it "shouldn't work with vectors of different length" do
       expect { Measurable.jaccard_index(@u, [1, 2, 3, 4]) }.to raise_error(ArgumentError)
     end
+
+    it "can be extended separately" do
+      klass = Class.new do
+        extend Measurable::Jaccard
+      end
+
+      x = klass.jaccard_index(@u, @v)
+
+      x.should be_within(TOLERANCE).of(1.0 / 2.0)
+    end
+
+    it "can be included separately" do
+      klass = Class.new do
+        include Measurable::Jaccard
+      end
+
+      x = klass.new.jaccard_index(@u, @v)
+
+      x.should be_within(TOLERANCE).of(1.0 / 2.0)
+    end
+
   end
 
   context "Distance" do

@@ -29,6 +29,22 @@ describe "Euclidean" do
     it "shouldn't work with vectors of different length" do
       expect { Measurable.euclidean(@u, [2, 2, 2, 2]) }.to raise_error(ArgumentError)
     end
+
+    it "can be extended separately" do
+      klass = Class.new do
+        extend Measurable::Euclidean
+      end
+
+      klass.euclidean([3, 4]).should == 5
+    end
+
+    it "can be included separately" do
+      klass = Class.new do
+        include Measurable::Euclidean
+      end
+
+      klass.new.euclidean([3, 4]).should == 5
+    end
   end
 
   context "Squared Distance" do
