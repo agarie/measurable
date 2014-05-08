@@ -3,11 +3,9 @@
 [![Build Status](https://travis-ci.org/agarie/measurable.svg?branch=master)](https://travis-ci.org/agarie/measurable)
 [![Code Climate](https://codeclimate.com/github/agarie/measurable.png)](https://codeclimate.com/github/agarie/measurable)
 
-A gem to test what metric is best for certain kinds of datasets in machine learning.
-
-Besides the `Array` class, I also want to support `NVector` (from [NMatrix](http://github.com/sciruby/nmatrix)).
-
-The distance measures will be created in Ruby first. If I see that it's really too slow, I'll write some methods in C (or Java, for JRuby).
+A gem to test what metric is best for certain kinds of datasets in machine
+learning. Besides the `Array` class, I also want to support
+[NMatrix](http://github.com/sciruby/nmatrix).
 
 This is a fork of the gem [Distance Measure](https://github.com/reddavis/Distance-Measures), which has a similar objective, but isn't actively maintained and doesn't support NMatrix. Thank you, [@reddavis][reddavis]. :)
 
@@ -15,7 +13,7 @@ This is a fork of the gem [Distance Measure](https://github.com/reddavis/Distanc
 
 `gem install measurable`
 
-I only tested it with 2.0.0 (yes, yes, travis, I'll do it eventually). I want to support JRuby as well.
+This gem is currently being tested on MRI Ruby 1.9.3, 2.0, 2.1.0, 2.1 (HEAD) and on Rubinius 2.x (HEAD). I hope to add JRuby support as well.
 
 ## Distance measures
 
