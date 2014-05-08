@@ -4,6 +4,6 @@ rvm:
   - 2.0
   - 2.1.0
   - 2.1
-  - rbx-head
+  - rbx-2
 # uncomment this line if your project needs to run something other than `rake`:
 # script: bundle exec rspec spec
