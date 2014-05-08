@@ -21,20 +21,7 @@ module Measurable
     #   - +ArgumentError+ -> The sizes of +u+ and +v+ don't match.
     #
     def euclidean(u, v = nil)
-      # If the second argument is nil, the method should return the norm of
-      # vector u. For this, we need the distance between u and the origin.
-      if v.nil?
-        v = Array.new(u.size, 0)
-      end
-
-      # TODO: Change this to a more specific, custom-made exception.
-      raise ArgumentError if u.size != v.size
-
-      sum = u.zip(v).reduce(0.0) do |acc, ary|
-        acc += (ary[0] - ary[-1]) ** 2
-      end
-
-      Math.sqrt(sum)
+      Math.sqrt(self.euclidean_squared(u, v))
     end
 
     # call-seq:
