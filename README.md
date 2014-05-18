@@ -11,15 +11,17 @@ This is a fork of the gem [Distance Measure](https://github.com/reddavis/Distanc
 which has a similar objective, but isn't actively maintained and doesn't support
 NMatrix. Thank you, [@reddavis][reddavis]. :)
 
-## Install
+## Installation
 
 `gem install measurable`
 
 This gem is currently being tested on MRI Ruby 1.9.3, 2.0, 2.1.0, 2.1 (HEAD) and on Rubinius 2.x (HEAD). I hope to add JRuby support in the future.
 
-## Distance measures
+## Available distance measures
 
-I'm using the term "distance measure" without much concern for the strict mathematical definition of a metric. If the documentation for one of the methods isn't clear about it being or not a metric, please open an issue.
+I'm using the term "distance measure" without much concern for the strict
+mathematical definition of a metric. If the documentation for one of the
+methods isn't clear about it being or not a metric, please open an issue.
 
 The following are the similarity measures supported at the moment:
 
@@ -30,11 +32,11 @@ The following are the similarity measures supported at the moment:
 - Jaccard distance
 - Tanimoto distance
 - Haversine distance
-- Minkowski (Cityblock or Manhattan) distance
+- Minkowski (aka Cityblock or Manhattan) distance
 - Chebyshev distance
 - Hamming distance
 - [Levenshtein distance](http://en.wikipedia.org/wiki/Levenshtein_distance)
-- [Kullback-Leibler divergence](http://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence) (I'm working on it; will be released with 0.0.8)
+- [Kullback-Leibler divergence](http://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence)
 
 ## How to use
 
@@ -44,7 +46,7 @@ The API I intend to support is something like this:
 require 'measurable'
 
 # Calculate the distance between two points in space.
-Measurable.euclidean([1, 1], [0, 0])        # => 1.41421
+Measurable.euclidean([1, 1], [0, 0]) # => 1.41421
 
 # Calculate the norm of a vector, i.e. its distance from the origin.
 Measurable.euclidean([1, 1]) # => 1.4142135623730951
@@ -56,11 +58,14 @@ Measurable.cosine_distance([1, 2], [2, 3]) # => 0.007722123286332261
 Measurable.euclidean_squared([3, 4]) # => 25
 ```
 
-Most of the methods accept arbitrary enumerable objects. For example, it's possible to use [NMatrix](https://github.com/sciruby/nmatrix).
+Most of the methods accept arbitrary enumerable objects instead of Arrays. For example, it's possible to use [NMatrix](https://github.com/sciruby/nmatrix).
 
 ## Documentation
 
-`RDoc` syntax is used to document the project. To build it locally, you'll need to install the [Fivefish generator](https://github.com/ged/rdoc-generator-fivefish) (`gem install rdoc-generator-fivefish`) and run the following command:
+`RDoc` syntax is used to document the project. To build it locally, you'll need
+to install the [Fivefish
+generator](https://github.com/ged/rdoc-generator-fivefish) (`gem install
+rdoc-generator-fivefish`) and run the following command:
 
 ```bash
 rake rdoc
