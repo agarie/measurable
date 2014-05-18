@@ -12,14 +12,13 @@ module Measurable
     #
     # See: http://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=05156398
     #
-    # * *Arguments* :
-    #   - +u+ -> An array of Numeric objects.
-    #   - +v+ -> An array of Numeric objects.
-    # * *Returns* :
-    #   - Similarity between +u+ and +v+.
-    # * *Raises* :
-    #   - +ArgumentError+ -> The sizes of +u+ and +v+ don't match.
-    #
+    # Arguments:
+    # - +u+ -> An array of Numeric objects.
+    # - +v+ -> An array of Numeric objects.
+    # Returns:
+    # - Similarity between +u+ and +v+.
+    # Raises:
+    # - +ArgumentError+ -> The sizes of +u+ and +v+ don't match.
     def maxmin(u, v)
       # TODO: Change this to a more specific, custom-made exception.
       raise ArgumentError if u.size != v.size

@@ -20,11 +20,11 @@ module Measurable
     # - Christopher D. Manning and Hinrich Schütze. Foundations of Statistical
     #   Natural Language Processing.
     #
-    # * *Arguments*:
-    #   - +p+ -> A probability distribution represented by a n-element Array.
-    #   - +q+ -> A probability distribution represented by a n-element Array.
-    # * *Returns*:
-    #   A measure of the difference between the probability distributions p and q.
+    # Arguments:
+    # - +p+ -> A probability distribution represented by a n-element Array.
+    # - +q+ -> A probability distribution represented by a n-element Array.
+    # Returns:
+    # - A measure of the difference between the probability distributions p and q.
     def kullback_leibler(p, q)
       # TODO: Change this to a more specific, custom-made exception.
       raise ArgumentError if p.size != q.size

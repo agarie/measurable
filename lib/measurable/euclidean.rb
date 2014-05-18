@@ -11,15 +11,13 @@ module Measurable
     #
     # See: http://en.wikipedia.org/wiki/Euclidean_distance#N_dimensions
     #
-    # * *Arguments* :
-    #   - +u+ -> An array of Numeric objects.
-    #   - +v+ -> (Optional) An array of Numeric objects.
-    # * *Returns* :
-    #   - The euclidean norm of +u+ or the euclidean distance between +u+ and
-    #     +v+.
-    # * *Raises* :
-    #   - +ArgumentError+ -> The sizes of +u+ and +v+ don't match.
-    #
+    # Arguments:
+    # - +u+ -> An array of Numeric objects.
+    # - +v+ -> (Optional) An array of Numeric objects.
+    # Returns:
+    # - The euclidean norm of +u+ or the euclidean distance between +u+ and +v+.
+    # Raises:
+    # - +ArgumentError+ -> The sizes of +u+ and +v+ don't match.
     def euclidean(u, v = nil)
       Math.sqrt(self.euclidean_squared(u, v))
     end
@@ -38,15 +36,14 @@ module Measurable
     #
     # See: http://en.wikipedia.org/wiki/Euclidean_distance#Squared_Euclidean_distance
     #
-    # * *Arguments* :
-    #   - +u+ -> An array of Numeric objects.
-    #   - +v+ -> (Optional) An array of Numeric objects.
-    # * *Returns* :
-    #   - The squared value of the euclidean norm of +u+ or of the euclidean
-    #     distance between +u+ and +v+.
-    # * *Raises* :
-    #   - +ArgumentError+ -> The sizes of +u+ and +v+ don't match.
-    #
+    # Arguments:
+    # - +u+ -> An array of Numeric objects.
+    # - +v+ -> (Optional) An array of Numeric objects.
+    # Returns:
+    # - The squared value of the euclidean norm of +u+ or of the euclidean
+    #   distance between +u+ and +v+.
+    # Raises:
+    # - +ArgumentError+ -> The sizes of +u+ and +v+ don't match.
     def euclidean_squared(u, v = nil)
       # If the second argument is nil, the method should return the norm of
       # vector u. For this, we need the distance between u and the origin.

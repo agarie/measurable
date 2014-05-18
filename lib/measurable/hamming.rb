@@ -10,14 +10,13 @@ module Measurable
     #
     # See: http://en.wikipedia.org/wiki/Hamming_distance
     #
-    # * *Arguments* :
-    #   - +s1+ -> A String.
-    #   - +s2+ -> A String with the same size of +s1+.
-    # * *Returns* :
-    #   - The number of characters in which +s1+ and +s2+ differ.
-    # * *Raises* :
-    #   - +ArgumentError+ -> The sizes of +s1+ and +s2+ don't match.
-    #
+    # Arguments:
+    # - +s1+ -> A String.
+    # - +s2+ -> A String with the same size of +s1+.
+    # Returns:
+    # - The number of characters in which +s1+ and +s2+ differ.
+    # Raises:
+    # - +ArgumentError+ -> The sizes of +s1+ and +s2+ don't match.
     def hamming(s1, s2)
       # TODO: Change this to a more specific, custom-made exception.
       raise ArgumentError if s1.size != s2.size

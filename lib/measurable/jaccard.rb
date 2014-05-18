@@ -17,15 +17,14 @@ module Measurable
     #
     # See: http://en.wikipedia.org/wiki/Jaccard_coefficient
     #
-    # * *Arguments* :
-    #   - +u+ -> Array.
-    #   - +v+ -> Array.
-    # * *Returns* :
-    #   - Float value representing the Jaccard similarity coefficient between
-    #     +u+ and +v+.
-    # * *Raises* :
-    #   - +ArgumentError+ -> The size of the input arrays doesn't match.
-    #
+    # Arguments:
+    # - +u+ -> Array.
+    # - +v+ -> Array.
+    # Returns:
+    # - Float value representing the Jaccard similarity coefficient between
+    #   +u+ and +v+.
+    # Raises:
+    # - +ArgumentError+ -> The size of the input arrays doesn't match.
     def jaccard_index(u, v)
       # TODO: Change this to a more specific, custom-made exception.
       raise ArgumentError if u.size != v.size
@@ -48,14 +47,13 @@ module Measurable
     #   - Coincidence axiom:     jaccard(u, v) == 0 if u == v
     #   - Triangular inequality: jaccard(u, v) <= jaccard(u, w) + jaccard(w, v)
     #
-    # * *Arguments* :
-    #   - +u+ -> Array.
-    #   - +v+ -> Array.
-    # * *Returns* :
-    #   - Float value representing the dissimilarity between +u+ and +v+.
-    # * *Raises* :
-    #   - +ArgumentError+ -> The size of the input arrays doesn't match.
-    #
+    # Arguments:
+    # - +u+ -> Array.
+    # - +v+ -> Array.
+    # Returns:
+    # - Float value representing the dissimilarity between +u+ and +v+.
+    # Raises:
+    # - +ArgumentError+ -> The size of the input arrays doesn't match.
     def jaccard(u, v)
       1 - jaccard_index(u, v)
     end

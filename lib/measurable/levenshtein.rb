@@ -18,12 +18,11 @@ module Measurable
     #
     # See: http://en.wikipedia.org/wiki/Levenshtein_distance
     #
-    # * *Arguments* :
-    #   - +u+ -> Array or String.
-    #   - +v+ -> Array or String.
-    # * *Returns* :
-    #   - Integer value representing the Levenshtein distance between
-    #     +u+ and +v+.
+    # Arguments:
+    # - +u+ -> Array or String.
+    # - +v+ -> Array or String.
+    # Returns:
+    # - Integer value representing the Levenshtein distance between +u+ and +v+.
     #
     def levenshtein(u, v)
       return 0 if u == v

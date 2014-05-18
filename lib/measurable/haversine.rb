@@ -37,17 +37,16 @@ module Measurable
     # - http://en.wikipedia.org/wiki/Haversine_formula
     # - http://en.wikipedia.org/wiki/Great-circle_distance
     #
-    # * *Arguments* :
-    #   - +u+ -> An array of Numeric objects.
-    #   - +v+ -> An array of Numeric objects.
-    #   - +unit+ -> (Optional) A Symbol representing the unit of measure. Available
-    #               options are +:miles+, +:feet+, +:km+ and +:meters+.
-    # * *Returns* :
-    #   - The great circle distance between +u+ and +v+.
-    # * *Raises* :
-    #   - +ArgumentError+ -> The size of +u+ and +v+ must be 2.
-    #   - +ArgumentError+ -> +unit+ must be a Symbol.
-    #
+    # Arguments:
+    # - +u+ -> An array of Numeric objects.
+    # - +v+ -> An array of Numeric objects.
+    # - +unit+ -> (Optional) A Symbol representing the unit of measure. Available
+    #             options are +:miles+, +:feet+, +:km+ and +:meters+.
+    # Returns:
+    # - The great circle distance between +u+ and +v+.
+    # Raises:
+    # - +ArgumentError+ -> The size of +u+ and +v+ must be 2.
+    # - +ArgumentError+ -> +unit+ must be a Symbol.
     def haversine(u, v, unit = :meters)
       # TODO: Create better exceptions.
       raise ArgumentError if u.size != 2 || v.size != 2

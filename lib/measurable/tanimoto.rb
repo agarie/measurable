@@ -15,14 +15,13 @@ module Measurable
     #
     # See: # http://en.wikipedia.org/wiki/Jaccard_index#Tanimoto.27s_Definitions_of_Similarity_and_Distance
     #
-    # * *Arguments* :
-    #   - +u+ -> An array of Numeric objects.
-    #   - +v+ -> An array of Numeric objects.
-    # * *Returns* :
-    #   - A measure of the similarity between +u+ and +v+.
-    # * *Raises* :
-    #   - +ArgumentError+ -> The sizes of +u+ and +v+ don't match.
-    #
+    # Arguments:
+    # - +u+ -> An array of Numeric objects.
+    # - +v+ -> An array of Numeric objects.
+    # Returns:
+    # - A measure of the similarity between +u+ and +v+.
+    # Raises:
+    # - +ArgumentError+ -> The sizes of +u+ and +v+ don't match.
     def tanimoto(u, v)
       # TODO: Change this to a more specific, custom-made exception.
       raise ArgumentError if u.size != v.size
