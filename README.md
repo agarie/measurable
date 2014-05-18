@@ -7,13 +7,15 @@ A gem to test what metric is best for certain kinds of datasets in machine
 learning. Besides the `Array` class, I also want to support
 [NMatrix](http://github.com/sciruby/nmatrix).
 
-This is a fork of the gem [Distance Measure](https://github.com/reddavis/Distance-Measures), which has a similar objective, but isn't actively maintained and doesn't support NMatrix. Thank you, [@reddavis][reddavis]. :)
+This is a fork of the gem [Distance Measure](https://github.com/reddavis/Distance-Measures),
+which has a similar objective, but isn't actively maintained and doesn't support
+NMatrix. Thank you, [@reddavis][reddavis]. :)
 
 ## Install
 
 `gem install measurable`
 
-This gem is currently being tested on MRI Ruby 1.9.3, 2.0, 2.1.0, 2.1 (HEAD) and on Rubinius 2.x (HEAD). I hope to add JRuby support as well.
+This gem is currently being tested on MRI Ruby 1.9.3, 2.0, 2.1.0, 2.1 (HEAD) and on Rubinius 2.x (HEAD). I hope to add JRuby support in the future.
 
 ## Distance measures
 
@@ -32,38 +34,29 @@ The following are the similarity measures supported at the moment:
 - Chebyshev distance
 - Hamming distance
 - [Levenshtein distance](http://en.wikipedia.org/wiki/Levenshtein_distance)
-
-These still need to be implemented:
-
-- Correlation distance
-- Chi-square distance
-- Kullback-Leibler divergence
-- Jensen-Shannon divergence
-- Mahalanobis distance
-- Squared Mahalanobis distance
-
-I plan to update the specs to reflect that each method is (or isn't) a mathematical metric, but I want to finish implementing them first. Any help is appreciated! :)
+- [Kullback-Leibler divergence](http://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence) (I'm working on it; will be released with 0.0.8)
 
 ## How to use
 
 The API I intend to support is something like this:
 
 ```ruby
-require "measurable"
-
-u = NMatrix.ones([2, 1])
-v = NMatrix.zeros([2, 1])
-w = [1, 0]
-x = [2, 2]
+require 'measurable'
 
 # Calculate the distance between two points in space.
-Measurable.euclidean(u, v) # => 1.41421
-Measurable.euclidean(w, v) # => 1.00000
-Measurable.cosine([1, 2], [2, 3]) # => 0.00772
+Measurable.euclidean([1, 1], [0, 0])        # => 1.41421
 
 # Calculate the norm of a vector, i.e. its distance from the origin.
+Measurable.euclidean([1, 1]) # => 1.4142135623730951
+
+# Get the cosine distance between
+Measurable.cosine_distance([1, 2], [2, 3]) # => 0.007722123286332261
+
+# Calculate sum of squares directly.
 Measurable.euclidean_squared([3, 4]) # => 25
 ```
+
+Most of the methods accept arbitrary enumerable objects. For example, it's possible to use [NMatrix](https://github.com/sciruby/nmatrix).
 
 ## Documentation
 
