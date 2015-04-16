@@ -62,16 +62,7 @@ Most of the methods accept arbitrary enumerable objects instead of Arrays. For e
 
 ## Documentation
 
-`RDoc` syntax is used to document the project. To build it locally, you'll need
-to install the [Fivefish
-generator](https://github.com/ged/rdoc-generator-fivefish) (`gem install
-rdoc-generator-fivefish`) and run the following command:
-
-```bash
-rake rdoc
-```
-
-If there's something wrong with an explanation or if there's information missing, please open an issue or send a pull request.
+The documentation is hosted on [rubydoc](http://www.rubydoc.info/github/agarie/measurable).
 
 ## License
 
