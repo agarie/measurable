@@ -25,8 +25,8 @@ describe "Jaccard" do
       x.should be_within(TOLERANCE).of(1.0 / 2.0)
     end
 
-    it "shouldn't work with vectors of different length" do
-      expect { Measurable.jaccard_index(@u, [1, 2, 3, 4]) }.to raise_error(ArgumentError)
+    it "should work with vectors of different length" do
+      expect { Measurable.jaccard_index(@u, [1, 2, 3, 4]) }.to_not raise_error
     end
 
     it "can be extended separately" do
@@ -76,8 +76,8 @@ describe "Jaccard" do
       x.should be_within(TOLERANCE).of(1.0 / 2.0)
     end
 
-    it "shouldn't work with vectors of different length" do
-      expect { Measurable.jaccard(@u, [1, 2, 3, 4]) }.to raise_error(ArgumentError)
+    it "should work with vectors of different length" do
+      expect { Measurable.jaccard(@u, [1, 2, 3, 4]) }.to_not raise_error
     end
   end
 end
