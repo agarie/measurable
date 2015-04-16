@@ -1,3 +1,6 @@
-=== 18th May, 2014 -- Version 0.0.8
+0.0.9 -- 16th April, 2015
+  * Removed unnecessary argument length check from jaccard_index.
+  * Host documentation on rubydoc.info.
 
+0.0.8 -- 18th May, 2014
   * Added Kullback-Leibler divergence.
