@@ -11,7 +11,7 @@ module Measurable
     # cardinality of set x.
     #
     # For example:
-    #   jaccard_index([1, 0, 1], [1, 1, 1]) == 0.5
+    #   jaccard_index([1, 0], [1]) == 0.5
     #
     # Because |intersection| = |(1)| = 1 and |union| = |(0, 1)| = 2.
     #
@@ -23,12 +23,7 @@ module Measurable
     # Returns:
     # - Float value representing the Jaccard similarity coefficient between
     #   +u+ and +v+.
-    # Raises:
-    # - +ArgumentError+ -> The size of the input arrays doesn't match.
     def jaccard_index(u, v)
-      # TODO: Change this to a more specific, custom-made exception.
-      raise ArgumentError if u.size != v.size
-
       intersection = u & v
       union = u | v
       intersection.length.to_f / union.length
