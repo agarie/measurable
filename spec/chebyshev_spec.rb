@@ -15,12 +15,12 @@ describe "Chebyshev distance" do
     x = Measurable.chebyshev(@u, @v)
     y = Measurable.chebyshev(@v, @u)
 
-    x.should be_within(TOLERANCE).of(y)
+    expect(x).to be_within(TOLERANCE).of(y)
   end
 
   it "should return the correct value" do
     x = Measurable.chebyshev(@u, @v)
-    x.should be_within(TOLERANCE).of(3.1)
+    expect(x).to be_within(TOLERANCE).of(3.1)
   end
 
   it "shouldn't work with vectors of different length" do
@@ -33,7 +33,7 @@ describe "Chebyshev distance" do
     end
 
     x = klass.chebyshev(@u, @v)
-    x.should be_within(TOLERANCE).of(3.1)
+    expect(x).to be_within(TOLERANCE).of(3.1)
   end
 
   it "can be included separately" do
@@ -42,7 +42,7 @@ describe "Chebyshev distance" do
     end
 
     x = klass.new.chebyshev(@u, @v)
-    x.should be_within(TOLERANCE).of(3.1)
+    expect(x).to be_within(TOLERANCE).of(3.1)
   end
 
 end

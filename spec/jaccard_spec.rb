@@ -16,13 +16,13 @@ describe "Jaccard" do
       x = Measurable.jaccard_index(@u, @v)
       y = Measurable.jaccard_index(@v, @u)
 
-      x.should be_within(TOLERANCE).of(y)
+      expect(x).to be_within(TOLERANCE).of(y)
     end
 
     it "should return the correct value" do
       x = Measurable.jaccard_index(@u, @v)
 
-      x.should be_within(TOLERANCE).of(1.0 / 2.0)
+      expect(x).to be_within(TOLERANCE).of(1.0 / 2.0)
     end
 
     it "should work with vectors of different length" do
@@ -36,7 +36,7 @@ describe "Jaccard" do
 
       x = klass.jaccard_index(@u, @v)
 
-      x.should be_within(TOLERANCE).of(1.0 / 2.0)
+      expect(x).to be_within(TOLERANCE).of(1.0 / 2.0)
     end
 
     it "can be included separately" do
@@ -46,7 +46,7 @@ describe "Jaccard" do
 
       x = klass.new.jaccard_index(@u, @v)
 
-      x.should be_within(TOLERANCE).of(1.0 / 2.0)
+      expect(x).to be_within(TOLERANCE).of(1.0 / 2.0)
     end
 
   end
@@ -59,25 +59,25 @@ describe "Jaccard" do
     end
 
     it "accepts two arguments" do
-      expect { Measurable.jaccard(@u, @v) }.to_not raise_error
-      expect { Measurable.jaccard(@u, @v, @w) }.to raise_error(ArgumentError)
+      expect { Measurable.jaccard_dissimilarity(@u, @v) }.to_not raise_error
+      expect { Measurable.jaccard_dissimilarity(@u, @v, @w) }.to raise_error(ArgumentError)
     end
 
     it "should be symmetric" do
-      x = Measurable.jaccard(@u, @v)
-      y = Measurable.jaccard(@v, @u)
+      x = Measurable.jaccard_dissimilarity(@u, @v)
+      y = Measurable.jaccard_dissimilarity(@v, @u)
 
-      x.should be_within(TOLERANCE).of(y)
+      expect(x).to be_within(TOLERANCE).of(y)
     end
 
     it "should return the correct value" do
-      x = Measurable.jaccard(@u, @v)
+      x = Measurable.jaccard_dissimilarity(@u, @v)
 
-      x.should be_within(TOLERANCE).of(1.0 / 2.0)
+      expect(x).to be_within(TOLERANCE).of(1.0 / 2.0)
     end
 
     it "should work with vectors of different length" do
-      expect { Measurable.jaccard(@u, [1, 2, 3, 4]) }.to_not raise_error
+      expect { Measurable.jaccard_dissimilarity(@u, [1, 2, 3, 4]) }.to_not raise_error
     end
   end
 end
