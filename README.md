@@ -15,7 +15,7 @@ NMatrix. Thank you, [@reddavis][reddavis]. :)
 
 `gem install measurable`
 
-This gem is currently being tested on MRI Ruby 1.9.3, 2.0, 2.1.0, 2.1 (HEAD) and on Rubinius 2.x (HEAD). I hope to add JRuby support in the future.
+I test this gem (via Travis CI) on Ruby MRI 2.5, 2.6 and 2.7.
 
 ## Available distance measures
 
